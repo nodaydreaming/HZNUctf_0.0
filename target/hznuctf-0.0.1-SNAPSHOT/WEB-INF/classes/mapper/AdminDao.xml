@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ctfplatform.demo.dao.AdminDao">
+    <select id="isSuper" resultType="com.ctfplatform.demo.entity.Admin">
+        SELECT *
+        FROM tb_admin
+        WHERE admin_username=#{adminUsername}
+    </select>
+    <select id="queryAdmin" resultType="com.ctfplatform.demo.entity.Admin">
+     SELECT *
+     FROM tb_admin
+     ORDER BY admin_id
+    </select>
+    <select id="queryAdminByUsername" resultType="com.ctfplatform.demo.entity.Admin">
+        SELECT *
+        FROM tb_admin
+        WHERE admin_username=#{adminUsername}
+    </select>
+    <insert id="insertAdmin" parameterType="com.ctfplatform.demo.entity.Admin">
+        <selectKey resultType="Integer" order="BEFORE" keyProperty="adminId">
+            select max(admin_id)+1 as adminId from tb_admin
+        </selectKey>
+    INSERT INTO
+    tb_admin(admin_id,admin_username,admin_nickname,admin_password,admin_tel,admin_gender,
+    admin_email,admin_photo,admin_state)
+    VALUES
+    (#{adminId},#{adminUsername},#{adminNickname},#{adminPassword},#{adminTel},#{adminGender},
+    #{adminEmail},#{adminPhoto},#{adminState})
+    </insert>
+    <update id="updateAdmin" parameterType="com.ctfplatform.demo.entity.Admin">
+        UPDATE tb_admin
+        <set>
+            <if test="adminNickname!=null">admin_nickname=#{adminNickname},</if>
+            <if test="adminPassword!=null">admin_password=#{adminPassword},</if>
+            <if test="adminTel!=null">admin_tel=#{adminTel},</if>
+            <if test="adminGender!=null">admin_gender=#{adminGender},</if>
+            <if test="adminEmail!=null">admin_email=#{adminEmail},</if>
+            <if test="adminPhoto!=null">admin_photo=#{adminPhoto}</if>
+        </set>
+        WHERE
+        admin_Username=#{adminUsername}
+    </update>
+    <delete id="deleteAdmin" parameterType="com.ctfplatform.demo.entity.Admin">
+        DELETE FROM
+        tb_admin
+        WHERE
+        admin_username=#{adminUsername}
+    </delete>
+</mapper>

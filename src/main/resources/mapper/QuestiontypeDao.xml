@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ctfplatform.demo.dao.QuestiontypeDao">
+    <select id="queryQuestiontype" resultType="com.ctfplatform.demo.entity.Questiontype">
+        SELECT *
+        FROM tb_questiontype
+        ORDER BY question_type_id
+    </select>
+    <insert id="insertQuestiontype" parameterType="com.ctfplatform.demo.entity.Questiontype">
+        <selectKey resultType="Integer" order="BEFORE" keyProperty="questionTypeId">
+            select max(question_type_id)+1 as questionTypeId from tb_questiontype
+        </selectKey>
+    INSERT INTO
+    tb_questiontype(question_type_id,question_type,question_type_introduction)
+    VALUES
+    (#{questionTypeId},#{questionType},#{questionTypeIntroduction})
+    </insert>
+    <update id="updateQuestiontype" parameterType="com.ctfplatform.demo.entity.Questiontype">
+        UPDATE tb_questiontype
+        <set>
+            <if test="questionType!=null">question_type=#{questionType},</if>
+            <if test="questionTypeIntroduction">question_type_introduction=#{questionTypeIntroduction}</if>
+        </set>
+        WHERE
+        question_type_id=#{questionTypeId}
+    </update>
+    <delete id="deleteQuestiontype" parameterType="com.ctfplatform.demo.entity.Questiontype">
+        DELETE FROM
+        tb_questiontype
+        WHERE
+        question_type_id=#{questionTypeId}
+    </delete>
+</mapper>

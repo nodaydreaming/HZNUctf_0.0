@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./navAndFooter.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="icon" href="img/dunpai.ico" type="image/x-ico">
+  <title>HZNUCTF</title>
+</head>
+
+<body>
+  <nav>
+    <div class="nav-left">
+      <p class="CTF">
+        <span>CTF</span>
+        <span class="CTF-logo">
+          <img src="img/dunpai.png" alt="">
+        </span>
+      </p>
+      <p class="HZNU">HZNU</p>
+    </div>
+    <div class="nav-middle">
+      <ul>
+        <li class="nav-li-1"><a href="javascript:void(0)">Home</a></li>
+        <li class="nav-li-2"><a href="javascript:void(0)">Problems</a></li>
+        <li class="nav-li-3"><a href="html/challenges.html">Challenges</a></li>
+        <li class="nav-li-4"><a href="javascript:void(0)">Scoreboard</a></li>
+      </ul>
+    </div>
+    <div class="nav-right">
+      <div class="nav-right-a">
+
+      </div>
+    </div>
+  </nav>
+
+  <header>
+    <div class="header-show">
+      <div class="show-side">
+        <span class="show-arrow">
+          <img src="img/left.png" alt="">
+        </span>
+      </div>
+      <div class="show-box">
+        <div class="box-inner">
+          <ul>
+            <li><img src="img/poster.png" alt="sorry, the photo is gone!"></li>
+            <li><img src="img/hacker.jpeg" alt="sorry, the photo is gone!"></li>
+          </ul>
+          <ol class="bar"></ol>
+        </div>
+      </div>
+      <div class="show-side">
+        <span class="show-arrow">
+          <img src="img/right.png" alt="">
+        </span>
+      </div>
+    </div>
+    <div class="header-pic">
+      <img src="img/welcome.jpg" alt="sorry, the photo is gone!">
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="center col">
+      <span class="iconfont">
+        <img src="img/notice.png" alt="">
+      </span>
+      <div class="center-notice">
+        <h1 class="notice-h1">Notice</h1>
+        <ul class="notice-ul">
+          <li class="notice-li">
+            杭州师范大学第一届夺旗赛（CTF），决赛！
+          </li>
+          <li class="notice-hide-li">
+            你还在等待一个机会去展示你的攻防技术吗？来这里，杭师大第一届CTf竞赛携手华为平台，震撼来袭！丰厚奖金，等你来夺！<a href="html/hznuctf.html">点击报名</a>
+          </li>
+          <li class="notice-li">
+            4月15日模拟赛开启！
+          </li>
+          <li class="notice-hide-li">
+            为了让大家熟悉CTF比赛的方式与流程，我们特别开放了一场热身模拟赛，欢迎大家积极报名参加，期待在决赛的赛场上看到你们的精彩表现！<a href="html/simulation.html">点击报名</a>
+          </li>
+          <li class="notice-li">
+            CTF 历史
+          </li>
+          <li class="notice-hide-li">
+            <b>起源：</b>CTF 的前身是传统黑客之间网络技术比拼的游戏，起源于 1996 年第四届 DEFCON。<br>
+            <b>早期CTF竞赛：</b>最开始的 CTF 比赛（1996 年 - 2001 年），没有明确的比赛规则，没有专业搭建的比赛平台与环境。
+            由参数队伍各自准备比赛目标（自己准备的比赛目标自己防守并要尝试攻破对方提供的比赛目标）。
+            而组织者大都只是一些非专业的志愿者，接受参赛队伍请求手工计分。<br>
+            <b>现代CTF竞赛：</b>
+            <br>由专业队伍承担比赛平台、命题、赛事组织以及自动化积分系统。有以下突出特点：<br>
+            <p>
+              比赛侧重于对计算机底层和系统安全核心能力，Web 漏洞攻防技巧完全不受重视。</p>
+            <p>
+              竞赛环境趋向多 CPU 指令架构集，多操作系统，多编程语言。</p>
+            <p>
+              团队综合能力考研：逆向分析、漏洞挖掘、漏洞利用、漏洞修补加固、网络流量分析、系统安全运维以及面向安全的编程调试。</p>
+            <em>以上来源于诸葛建伟老师在 i 春秋上的公开视频「CTF 的过去、现在与未来」</em>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="right col">
+
+      <div class="right-top">
+        <span class="iconfont">
+          <img src="img/flag.png" alt="">
+        </span>
+        <div class="right-instro">
+          <h1 class="instro-h1">Problem Instrodution</h1>
+          <ul class="instro-ul">
+            <li>网络攻防</li>
+            <li>逆向工程</li>
+          </ul>
+          <ul class="instro-hide-ul">
+            <li>
+              <b>Web - 网络攻防：</b>
+              主要介绍了 Web 安全中常见的漏洞，如 SQL 注入、XSS、
+              CSRF、文件包含、文件上传、代码审计、PHP 弱类型等，
+              Web 安全中常见的题型及解题思路，提供了一些常用的工具。
+            </li>
+            <li>
+              <b>Reverse Engineering - 逆向工程：</b>
+              主要介绍了逆向工程中的常见题型、工具平台、解题思路，
+              进阶部分介绍了逆向工程中常见的软件保护、反编译、反调试、
+              加壳脱壳技术。
+            </li>
+          </ul>
+          <ul class="instro-ul">
+            <li>二进制漏洞利用</li>
+            <li>密码攻击</li>
+          </ul>
+          <ul class="instro-hide-ul">
+            <li>
+              <b>Pwn - 二进制漏洞利用：</b>
+              Pwn 题目主要考察二进制漏洞的发掘和利用，需要对计算机操作
+              系统底层有一定的了解。在 CTF 竞赛中，PWN 题目主要出现在
+              Linux 平台上。
+            </li>
+            <li>
+              <b>Crypto - 密码攻击：</b>
+              主要包括古典密码学和现代密码学两部分内容，古典密码学
+              趣味性强，种类繁多，现代密码学安全性高，对算法理解的要
+              求较高。
+            </li>
+          </ul>
+          <ul class="instro-ul second-instro-ul">
+            <li>安全杂项</li>
+            <li>移动安全</li>
+          </ul>
+          <ul class="instro-hide-ul">
+            <li>
+              <b>Misc - 安全杂项：</b>
+              以诸葛建伟翻译的《线上幽灵：世界头号黑客米特尼克自传》
+              和一些典型 MISC 题为切入点，内容主要包括信息搜集、
+              编码分析、取证分析、隐写分析等。
+            </li>
+            <li>
+              <b>Mobile - 移动安全：</b>
+              主要介绍了安卓逆向中的常用工具和主要题型，安卓逆向常常
+              需要一定的安卓开发知识，iOS 逆向题目在 CTF 竞赛中较少
+              出现，因此不作过多介绍。
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="right-bottom">
+        <span class="iconfont">
+          <img src="img/flag.png" alt="">
+        </span>
+        <div class="right-link">
+          <h1 class="link-h1">Learning Resources</h1>
+          <ul class="link-ul">
+            <li class="link-li">
+              <a href="https://www.jarvisoj.com" target="_blank">浙江大学CTF在线答题系统</a>
+            </li>
+            <li class="link-li">
+              <a href="https://www.ichunqiu.com" target="_blank">i 春秋在线学习培训平台</a>
+            </li>
+            <li class="link-li">
+              <a href="http://www.shiyanbar.com/ctf" target="_blank">实验吧－让实验更简单！</a>
+            </li>
+            <li class="link-li">
+              <a href="https://www.kanxue.com/chm.htm" target="_blank">看雪知识库</a>
+            </li>
+            <li class="link-li">
+              <a href="https://ctf-wiki.github.io/ctf-wiki/" target="_blank">CTF Wiki</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    Copyright &#169; 2019,HZNUNISL, All rights reverved.
+  </footer>
+
+  <script src="js/jquery-3.3.1.js"></script>
+  <script src="js/show.js"></script>
+  <script src="js/home.js"></script>
+  <script src="js/development.js"></script>
+  <script>
+    /*Problem Instrodution*/
+    let instroUl0 = $('.instro-ul:eq(0)');
+    let instroHideUl0 = $('.instro-hide-ul:eq(0)');
+    instroUl0.children(':first').click(function () {
+      instroHideUl0.children(':first').slideToggle();
+    });
+    instroUl0.children(':last').click(function () {
+      instroHideUl0.children(':last').slideToggle();
+    });
+
+    let instroUl1 = $('.instro-ul:eq(1)');
+    let instroHideUl1 = $('.instro-hide-ul:eq(1)');
+    instroUl1.children(':first').click(function () {
+      instroHideUl1.children(':first').slideToggle();
+    });
+    instroUl1.children(':last').click(function () {
+      instroHideUl1.children(':last').slideToggle();
+    });
+
+    let instroUl2 = $('.instro-ul:eq(2)');
+    let instroHideUl2 = $('.instro-hide-ul:eq(2)');
+    instroUl2.children(':first').click(function () {
+      instroHideUl2.children(':first').slideToggle();
+    });
+    instroUl2.children(':last').click(function () {
+      instroHideUl2.children(':last').slideToggle();
+    });
+  </script>
+</body>
+
+</html>

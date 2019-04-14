@@ -1,0 +1,28 @@
+祖安30j.2274220436 987456321 
+1区胖子2区17区Hulk  2489720818  987456321  
+老Hulk1区新2区  1401699373  tuerlove~!123 
+跑跑 782838495 a987456321     steam jtc2017jtc
+梦幻jiatiecheng2016 tiecheng2016abcd
+新浪249044756   057746719906宽带481218
+steam   jtc2017jtc
+ppt jtc515
+交行a86001529 教务管理tiecheng  英语300330
+VMWARE 987456321
+   ipp store Prato3206157767 
+
+确定 德隆 403476971 小2638904297 249044756  1401699373 2489720818
+
+5173：jtc2013jtc cheng  
+
+172.22.227.88:8090/lab514/# 
+http://172.22.27.47:8080/LIMS/index.jsp 
+http://172.22.27.47:8080/is_lab/login.html 
+
+147友情岁月
+未做作业：计网  OS PY
+
+jdbc.driver = com.mysql.cj.jdbc.Driver
+jdbc.url = jdbc:mysql://106.13.67.233/ctf?useUnicode=true&characterEncoding=utf8&useSSL=false
+jdbc.username = root
+jdbc.password = yeruibin200
+

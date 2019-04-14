@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ctfplatform.demo.dao.UserDao">
+    <select id="queryUser" resultType="com.ctfplatform.demo.entity.User">
+        SELECT *
+        FROM tb_user
+        ORDER BY competitor_id
+    </select>
+    <select id="queryUserByUsername" resultType="com.ctfplatform.demo.entity.User">
+        SELECT *
+        FROM tb_user
+        WHERE
+        competitor_username=#{competitorUsername}
+    </select>
+    <select id="queryUserById" resultType="com.ctfplatform.demo.entity.User">
+        SELECT *
+        FROM tb_user
+        WHERE
+        competitor_id=#{userId}
+    </select>
+    <select id="queryPasswordByUsername" resultType="com.ctfplatform.demo.entity.User">
+            SELECT *
+            FROM tb_user
+            WHERE
+            competitor_username=#{competitorUsername}
+    </select>
+    <insert id="insertUser" parameterType="com.ctfplatform.demo.entity.User">
+        <selectKey resultType="Integer" order="BEFORE" keyProperty="competitorId">
+            select max(competitor_id)+1 as competitorId from tb_user
+        </selectKey>
+        INSERT INTO
+        tb_user(competitor_id,competitor_username,
+        competitor_password,competitor_nickname,competitor_studentnumber,competitor_tel,competitor_academy,competitor_class,competitor_email,competitor_gender,competitor_name)
+        VALUES
+        (#{competitorId},#{competitorUsername},#{competitorPassword},#{competitorNickname},#{competitorStudentnumber},#{competitorTel},#{competitorAcademy},#{competitorClass},#{competitorEmail},#{competitorGender},#{competitorName})
+    </insert>
+    <update id="updateUser" parameterType="com.ctfplatform.demo.entity.User">
+        UPDATE tb_user
+        <set>
+            <if test="competitorPassword!=null">competitor_password=#{competitorPassword},</if>
+            <if test="competitorNickname!=null">competitor_nickname=#{competitorNickname},</if>
+            <if test="competitorTel!=null">competitor_tel=#{competitorTel},</if>
+            <if test="competitorAcademy!=null">competitor_academy=#{competitorAcademy},</if>
+            <if test="competitorClass!=null">competitor_class=#{competitorClass},</if>
+            <if test="competitorEmail!=null">competitor_email=#{competitorEmail},</if>
+            <if test="competitorGender!=null">competitor_gender=#{competitorGender},</if>
+            <if test="competitorName!=null">competitor_name=#{competitorName}</if>
+        </set>
+        WHERE
+        competitor_username=#{competitorUsername}
+    </update>
+    <delete id="deleteUser" parameterType="com.ctfplatform.demo.entity.User">
+        DELETE FROM
+        tb_user
+        WHERE
+        competitor_username =
+        #{competitorUsername}
+    </delete>
+</mapper>

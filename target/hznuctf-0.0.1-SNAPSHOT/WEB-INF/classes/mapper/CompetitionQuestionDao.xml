@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ctfplatform.demo.dao.CompetitionQuestionDao">
+    <select id="queryCompetitionquestion" resultType="com.ctfplatform.demo.entity.CompetitionQuestion">
+        SELECT *
+        FROM tb_competitionquestion
+        ORDER BY competition_question_id
+    </select>
+    <select id="listCompetitionQuestionId" resultType="java.lang.Integer">
+        SELECT question_id
+        FROM tb_competitionquestion
+        WHERE
+        competition_id = #{competitionId}
+    </select>
+    <insert id="insertCompetitionQuestion" parameterType="com.ctfplatform.demo.entity.CompetitionQuestion"
+    useGeneratedKeys="true" keyColumn="competition_question_id" keyProperty="competitionQuestionId">
+
+        INSERT INTO
+        tb_competitionquestion(question_id,competition_id,question_number)
+        VALUES
+        (#{questionId},#{competitionId},#{questionNumber})
+    </insert>
+    <delete id="deleteCompetitionQuestion" parameterType="com.ctfplatform.demo.entity.CompetitionQuestion">
+        DELETE FROM
+        tb_competitionquestion
+        WHERE
+        competition_id=#{competitionId}
+    </delete>
+</mapper>

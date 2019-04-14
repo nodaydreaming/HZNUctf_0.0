@@ -1,0 +1,143 @@
+@charset "UTF-8";
+
+.nav-li-3 a {
+    color: #fff;
+}
+
+.main{
+    width:96%;
+    height:800px;
+    margin:2%;
+    margin-bottom: 0;
+    text-align: center;
+    padding-top:1%;
+    line-height:80px;
+    border-radius: 5px;
+}
+.main ul{
+    width:100%;
+    height:50px;
+    padding:0;
+}
+.main li{
+    list-style-type: none;
+    text-align: center;
+    line-height:30px;
+}
+.main button{
+    height:30px;
+    font:normal 15px black;
+}
+#createTeam{
+    float:left;
+    width:50%;
+    border-radius: 5px;
+}
+#createTeam:hover{
+    background-color:darkgray;
+    color:white;
+}
+#addTeam{
+    float:right;
+    width:50%;
+    border-radius:5px;
+}
+#addTeam:hover{
+    background-color:darkgrey;
+    color:white
+}
+.label{
+    width:40px;
+}
+/* left content start */
+.leftContent{
+    width:50%;
+    height:610px;
+    float:left;
+    font-size:14px;
+}
+.leftContent .label{
+    position: relative;
+    top:11px;
+    right:3px;
+}
+.leftContent h2{
+    float:left;
+    width:100%;
+}
+/* introduce */
+.part1{
+    width:100%;
+    display: block;
+    position: relative;
+    left:-22%;
+    overflow: hidden;
+}
+#introduce{
+    width:360px;
+    height:200px;
+    line-height:20px;
+    text-align: left;
+    text-indent: 2em;
+    float:right;
+}
+/* introduce end */
+/* rule */
+.part2{
+    width:100%;
+    display: block;
+    position: relative;
+    left:-22%;
+    overflow: hidden;
+    margin-top:30px;
+}
+#rule{
+    width:360px;
+    line-height: 20px;
+    text-align:left;
+    float:right;
+}
+/* rule end */
+/* left content end */
+/* right content start */
+.rightContent{
+    width:50%;
+    height:610px;
+    float:right;
+    font-size:14px;
+}
+.rightContent .label{
+    position: relative;
+    top:11px;
+    right:3px;
+}
+/* process */
+.part3{
+    width:100%;
+    display:block;
+    overflow: hidden;
+    position: relative;
+    right:35%;
+    padding-top:8px;
+}
+#process{
+    width:360px;
+    line-height:20px;
+    text-align:left;
+    float:right;
+}
+/* process end */
+/* prize */
+.part4{
+    width:100%;
+    display:block;
+    overflow: hidden;
+    position:relative;
+    right:35%;
+}
+#prize{
+    width:360px;
+    line-height:20px;
+    text-align:left;
+    float:right;
+}

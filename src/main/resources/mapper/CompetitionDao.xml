@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ctfplatform.demo.dao.CompetitionDao">
+    <select id="queryCompetition" resultType="com.ctfplatform.demo.entity.Competition">
+        SELECT *
+        FROM tb_competition
+        ORDER BY competition_id
+    </select>
+    <select id="queryCompetitionByNumber" resultType="com.ctfplatform.demo.entity.Competition">
+        SELECT *
+        FROM tb_competition
+        WHERE competition_number=#{number}
+    </select>
+    <select id="queryCompetitionByTitle" resultType="com.ctfplatform.demo.entity.Competition">
+        SELECT *
+        FROM tb_competition
+        WHERE
+        competition_title=#{competitionTitle}
+    </select>
+    <insert id="insert"  parameterType="com.ctfplatform.demo.entity.Competition">
+        <selectKey resultType="Integer" order="BEFORE" keyProperty="competitionId">
+            select max(competition_id)+1 as competitionId from tb_competition
+        </selectKey>
+        INSERT INTO
+        tb_competition(competition_id,competition_title,competition_start,competition_end,
+        competition_createtime,competition_canregister,competition_isteam,competition_number,competition_holder)
+        VALUES
+        (#{competitionId},#{competitionTitle},#{competitionStart},#{competitionEnd},#{competitionCreatetime},
+        #{competitionCanregister},#{competitionIsteam},#{competitionNumber},#{competitionHolder})
+    </insert>
+    <update id="update" parameterType="com.ctfplatform.demo.entity.Competition">
+        UPDATE tb_competition
+        <set>
+            <if test="competitionTitle!=null">competition_title=#{competitionTitle},</if>
+            <if test="competitionStart!=null">competition_start=#{competitionStart},</if>
+            <if test="competitionEnd!=null">competition_end=#{competitionEnd},</if>
+            <if test="competitionCreatetime!=null">competition_createtime=#{competitionCreatetime},</if>
+            <if test="competitionCanregister!=null">competition_canregister=#{competitionCanregister},</if>
+            <if test="competitionIsteam!=null">competition_isteam=#{competitionIsteam},</if>
+            <if test="competitionNumber!=null">competition_number=#{competitionNumber},</if>
+            <if test="competitionHolder!=null">competition_holder=#{competitionHolder}</if>
+        </set>
+        WHERE
+        competition_id=#{competitionId}
+    </update>
+    <delete id="delete" parameterType="com.ctfplatform.demo.entity.Competition">
+        DELETE FROM
+        tb_competition
+        WHERE
+        competition_id =
+        #{competitionId}
+    </delete>
+</mapper>

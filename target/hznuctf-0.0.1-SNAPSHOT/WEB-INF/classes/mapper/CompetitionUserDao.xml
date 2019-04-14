@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ctfplatform.demo.dao.CompetitionUserDao">
+    <select id="listCompetitionUser" resultType="com.ctfplatform.demo.entity.CompetitionUser">
+        SELECT *
+        FROM
+        tb_competitionuser
+        ORDER BY
+        competitionuser_id
+    </select>
+    <select id="queryCompetitionUserByCompetitionIdAndUserId" resultType="com.ctfplatform.demo.entity.CompetitionUser">
+        SELECT *
+        FROM tb_competitionuser
+        WHERE
+        competition_id=#{competitionId} AND competitor_id = #{userId}
+    </select>
+    <select id="listUserParticipateCompetitionId" resultType="Integer">
+        SELECT competition_id
+        FROM tb_competitionuser
+        WHERE
+        competitor_id=#{userId}
+    </select>
+    <select id="listOneCompetitionUser" resultType="Integer">
+        SELECT competitor_id
+        FROM tb_competitionuser
+        WHERE
+        competition_id=#{competitionId}
+    </select>
+    <select id="getCompetitionUserByUserIdAndCompetitionId" resultType="com.ctfplatform.demo.entity.CompetitionUser">
+        SELECT *
+        FROM tb_competitionuser
+        WHERE
+        competition_id=#{competitionId} AND competitor_id=#{userId}
+    </select>
+    <insert id="insertCompetitionUser" parameterType="com.ctfplatform.demo.entity.CompetitionUser">
+        <selectKey resultType="Integer" order="BEFORE" keyProperty="competitionuserId">
+            SELECT max(competitionuser_id)+1 as competitionuserId from tb_competitionuser
+        </selectKey>
+        INSERT INTO
+        tb_competitionuser(competitionuser_id,competition_id,competitor_id,entering_time)
+        VALUES
+        (#{competitionuserId},#{competitionId},#{competitorId},#{enteringTime})
+    </insert>
+    <delete id="deleteCompetitionUser" parameterType="com.ctfplatform.demo.entity.CompetitionUser">
+        DELETE FROM
+        tb_competitionuser
+        WHERE
+        competition_id=#{competitionId} AND competitor_id=#{competitorId}
+    </delete>
+
+</mapper>

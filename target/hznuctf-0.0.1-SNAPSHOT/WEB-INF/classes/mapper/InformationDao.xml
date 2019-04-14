@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ctfplatform.demo.dao.InformationDao">
+    <select id="queryInformation" resultType="com.ctfplatform.demo.entity.Information">
+        SELECT *
+        FROM
+        tb_information
+    </select>
+    <insert id="insertInfor" parameterType="com.ctfplatform.demo.entity.Information">
+        <selectKey resultType="Integer" order="BEFORE" keyProperty="informationId">
+            select max(information_id)+1 as informationId from tb_information
+        </selectKey>
+        INSERT INTO
+        tb_information(information_id,admin_id,information_detail,create_time)
+        VALUES
+        (#{informationId},#{adminId},#{informationDetail},#{createTime})
+    </insert>
+    <update id="updateInfor" parameterType="com.ctfplatform.demo.entity.Information">
+        UPDATE tb_information
+        <set>
+            <if test="adminId!=null">admin_id=#{adminId},</if>
+            <if test="informationDetail!=null">information_detail=#{informationDetail}</if>
+        </set>
+        WHERE
+        information_id=#{informationId}
+    </update>
+    <delete id="deleteInfor" parameterType="com.ctfplatform.demo.entity.Information">
+        DELETE FROM
+        tb_information
+        WHERE
+        information_id=#{informationId}
+    </delete>
+</mapper>

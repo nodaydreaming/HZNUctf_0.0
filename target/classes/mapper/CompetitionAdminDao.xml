@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ctfplatform.demo.dao.CompetitionAdminDao">
+    <select id="listCompetitionAdmin" resultType="com.ctfplatform.demo.entity.CompetitionAdmin">
+        SELECT *
+        FROM tb_competitionadmin
+        ORDER BY
+        competitionadmin_id
+    </select>
+    <select id="listCompetitionAdminId" resultType="java.lang.Integer">
+        SELECT admin_id
+        FROM
+        tb_competitionadmin
+        WHERE
+        competition_id=#{competitionId}
+    </select>
+    <insert id="insert" parameterType="com.ctfplatform.demo.entity.CompetitionAdmin"
+    useGeneratedKeys="true" keyProperty="competitionadminId" keyColumn="competitionadmin_id">
+
+        INSERT INTO
+        tb_competitionadmin(competition_id,admin_id)
+        VALUES
+        (#{competitionId},#{adminId})
+    </insert>
+    <delete id="delete" parameterType="com.ctfplatform.demo.entity.CompetitionAdmin">
+        DELETE FROM
+        tb_competitionadmin
+        where
+        competition_id=#{competitionId}
+    </delete>
+</mapper>

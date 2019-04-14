@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ctfplatform.demo.dao.RecordDao">
+    <select id="queryRecord" resultType="com.ctfplatform.demo.entity.Record">
+        SELECT *
+        FROM tb_record
+        ORDER BY
+        answer_id
+    </select>
+    <insert id="insertRecord" parameterType="com.ctfplatform.demo.entity.Record">
+        <selectKey resultType="Integer" order="BEFORE" keyProperty="answerId">
+            select max(answer_id)+1 as answerId from tb_record
+        </selectKey>
+        INSERT INTO
+        tb_record(answer_id,competition_id,question_id,team_id,competitor_id,answer_time,answer_body,answer_result,
+        answer_get_point)
+        VALUES
+        (#{answerId},#{competitionId},#{questionId},#{teamId},#{competitorId},#{answerTime},#{answerBody},#{answerResult},
+        #{answerGetPoint})
+    </insert>
+    <delete id="deleteRecord" parameterType="com.ctfplatform.demo.entity.Record">
+        DELETE FROM
+        tb_record
+        WHERE
+        answer_id=#{answerId}
+    </delete>
+</mapper>

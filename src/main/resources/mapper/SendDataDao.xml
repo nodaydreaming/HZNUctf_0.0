@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ctfplatform.demo.dao.SendDataDao">
+    <select id="querySendDataByCompetitionId" resultType="com.ctfplatform.demo.entity.SendData">
+        SELECT *
+        FROM
+        tb_datasend
+        WHERE competition_id=#{competitionId}
+    </select>
+    <insert id="insert" parameterType="com.ctfplatform.demo.entity.SendData"
+            useGeneratedKeys="true" keyColumn="datasend_id" keyProperty="datasendId">
+        INSERT INTO
+        tb_datasend(competition_id,send_ip,send_port,account,password)
+        VALUES
+        (#{competitionId},#{sendIp},#{sendPort},#{account},#{password})
+    </insert>
+    <update id="update" parameterType="com.ctfplatform.demo.entity.SendData">
+        UPDATE
+        tb_datasend
+        <set>
+            <if test="competitionId!=null">competeition_id=#{competitionId},</if>
+            <if test="sendIp!=null">send_ip=#{sendIp},</if>
+            <if test="sendPort!=null">send_port=#{sendPort},</if>
+            <if test="account!=null">account=#{account},</if>
+            <if test="password!=null">password=#{password}</if>
+        </set>
+        WHERE
+        competiion_id=#{competitionId}
+    </update>
+</mapper>

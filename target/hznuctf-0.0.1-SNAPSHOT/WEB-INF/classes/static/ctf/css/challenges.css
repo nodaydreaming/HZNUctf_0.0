@@ -1,0 +1,87 @@
+@charset "UTF-8";
+/*nav*/
+.nav-li-3 a {
+    color: #fff;
+}
+
+body, html {
+    margin: 0 auto;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+.m-challen-table {
+    width: 100%;
+    height: 500px;
+    text-align: center;
+    font-family: kaiti, 苹果丽黑， 微软雅黑, serif;
+}
+
+.m-challen-tr {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 20px auto;
+    width: 80%;
+}
+
+.m-challen-td {
+    margin: 40px;
+    padding: 20px 50px 30px 50px;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    border-radius: 7px;
+    border-color: black;
+    -webkit-box-shadow: darkgray 0 0 30px 5px inset;
+            box-shadow: darkgray 0 0 25px 0px inset;
+    -webkit-box-shadow: darkgray 0px 0px 10px 0px;
+            box-shadow: darkgray 0px 0px 10px 0px;
+}
+
+.m-challen-time {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 1.5rem;
+}
+
+.m-challen-btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 10px 0;
+    margin-left: 57%;
+    width: 30%;
+    font-family: 黑体;
+    font-weight: 400;
+    color: #ded;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    background-color: #FF6600;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+
+.m-challen-btn:hover {
+    color: #fff;
+    font-size: 1.1rem;
+    width: 40%;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

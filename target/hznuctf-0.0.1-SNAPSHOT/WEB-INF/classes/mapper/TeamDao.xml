@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ctfplatform.demo.dao.TeamDao">
+    <select id="queryTeam" resultType="com.ctfplatform.demo.entity.Team">
+        SELECT *
+        FROM tb_team
+        ORDER BY team_id
+    </select>
+    <select id="queryTeamByNameAndCompetitionId" resultType="com.ctfplatform.demo.entity.Team">
+        SELECT *
+        FROM tb_team
+        WHERE
+        team_name=#{teamName} AND team_competition_id = #{competitionId}
+    </select>
+    <select id="queryTeamByUserIdAndCompetitionId" resultType="java.lang.Integer">
+        SELECT COUNT(*)
+        FROM tb_team AS a, tb_teamcompetitor AS b
+        WHERE b.competitor_id=#{userId} AND a.team_id = b.team_id AND a.team_competition_id = #{competitionId}
+    </select>
+    <select id="queryTeamIdByUserIdAndCompetitionId" resultType="java.lang.Integer">
+        SELECT a.team_id
+        FROM tb_team AS a, tb_teamcompetitor AS b
+        WHERE b.competitor_id=#{userId} AND a.team_id = b.team_id AND a.team_competition_id = #{competitionId}
+    </select>
+    <insert id="insertTeam" parameterType="com.ctfplatform.demo.entity.Team">
+        <selectKey resultType="Integer" order="BEFORE" keyProperty="teamId">
+            select max(team_id)+1 as teamId from tb_team
+        </selectKey>
+        INSERT INTO
+        tb_team(team_id,team_name,team_competition_id,team_point)
+        VALUES
+        (#{teamId},#{teamName},#{teamCompetitionId},0)
+    </insert>
+    <update id="updateTeam" parameterType="com.ctfplatform.demo.entity.Team">
+        UPDATE tb_team
+        <set>
+            <if test="teamName!=null">team_name=#{teamName},</if>
+            <if test="teamCompetitionId!=null">team_competition_id=#{teamCompetitionId},</if>
+            <if test="teamPoint!=null">team_point=#{teamPoint}</if>
+        </set>
+        WHERE
+        team_id=#{teamId}
+    </update>
+    <update id="updatePoint" parameterType="com.ctfplatform.demo.entity.Team">
+        UPDATE tb_team
+        <set>
+           <if test="teamPoint!=null">team_point=#{teamPoint}</if>
+        </set>
+        WHERE
+        team_name=#{teamName}
+    </update>
+    <delete id="deleteTeam" parameterType="com.ctfplatform.demo.entity.Team">
+        DELETE FROM
+        tb_team
+        WHERE
+        team_id=#{teamId}
+    </delete>
+
+</mapper>

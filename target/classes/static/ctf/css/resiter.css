@@ -1,0 +1,113 @@
+@charset "UTF-8";
+
+.unLogin:last-child {
+    color: #fff;
+}
+
+.m-register {
+    margin: 0 auto;
+    height: 510px;
+    width: 1000px;
+    color: #666;
+}
+
+.register-wrap {
+    margin: 0 auto;
+    width: 500px;
+}
+
+.register-form {
+    margin: 0 auto;
+    width: 500px;
+    text-align: center;
+}
+
+.register-title {
+    position: relative;
+    left: 33px;
+    height: 100px;
+    line-height: 100px;
+}
+
+.register-main {
+    margin-top: 30px;
+}
+
+.register-p, .register-radio {
+    position: relative;
+    margin: 0;
+    width: 100%;
+    clear: both;
+    height: 60px;
+    line-height: 60px;
+}
+
+.register-label {
+    display: block;
+    float: left;
+    height: 60px;
+    width: 75px;
+    line-height: 60px;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: right;
+}
+
+.register-p input {
+    padding: 10px 12px;
+	box-sizing: border-box;
+    width: 350px;
+    font-size: 16px;
+    border: 1px solid #999;
+    color: #333;
+    box-sizing: border-box;
+}
+
+.register-select {
+    padding: 10px 12px;
+    box-sizing: border-box;
+    width: 350px;
+    font-size: 16px;
+    border: 1px solid #999;
+    color: #333;
+    box-sizing: border-box;
+}
+
+.register-option-list {
+    max-height: 100px;
+}
+
+.register-option {
+    max-height: 100px;
+    overflow-y: auto;
+    width: 100%;
+    text-align: center;
+}
+
+.register-radio span {
+    padding: 0 50px;
+}
+
+.register-btn {
+    position: relative;
+    float: left;
+    left: 109px;
+    margin: 30px 0;
+    padding: 10px 15px;
+	font-size: 16px;
+    width: 350px;
+	display: inline-block;
+	box-sizing: border-box;
+	background: #3f89ec;
+	color: #fff;
+}
+
+.register-message {
+    position: absolute;
+    top: 220px;
+    left: 625px;
+    width: 350px;
+    color: #f00;
+    text-align: center;
+}
+

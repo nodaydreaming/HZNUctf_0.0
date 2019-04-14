@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ctfplatform.demo.dao.TeamCompetitorDao">
+    <select id="queryTeamCompetitor" resultType="com.ctfplatform.demo.entity.TeamCompetitor">
+        SELECT *
+        FROM tb_teamcompetitor
+        ORDER BY teamcompetitor_id
+    </select>
+    <select id="queryCompetitorExist" resultType="com.ctfplatform.demo.entity.TeamCompetitor" >
+        SELECT *
+        FROM tb_teamcompetitor
+        WHERE competitor_id=#{competitorId}
+    </select>
+    <select id="queryTeamnameByCompetitorId" resultType="java.lang.String">
+        SELECT team_name
+        FROM
+        tb_teamcompetitor NATURAL JOIN tb_team
+        WHERE
+        competitor_id = #{competitorId}
+    </select>
+    <select id="queryCompetitorIdByTeamId" resultType="com.ctfplatform.demo.entity.TeamCompetitor">
+        SELECT *
+        FROM tb_teamcompetitor
+        WHERE team_id = #{teamId}
+    </select>
+    <insert id="insertTeamCompetitor" parameterType="com.ctfplatform.demo.entity.TeamCompetitor" >
+        <selectKey resultType="Integer" order="BEFORE" keyProperty="teamcompetitorId" >
+            select max(teamcompetitor_id)+1 as teamcompetitorId from tb_teamcompetitor
+        </selectKey>
+        INSERT INTO
+        tb_teamcompetitor(teamcompetitor_id,team_id,competitor_id,competitor_level)
+        VALUES
+        (#{teamcompetitorId},#{teamId},#{competitorId},#{competitorLevel})
+    </insert>
+    <delete id="deleteCompetitor" parameterType="com.ctfplatform.demo.entity.TeamCompetitor">
+        DELETE FROM
+        tb_teamcompetitor
+        WHERE
+        competitor_id =#{competitorId} and team_id = #{teamId}
+    </delete>
+    <delete id="deleteTeam" parameterType="com.ctfplatform.demo.entity.TeamCompetitor">
+        DELETE FROM
+        tb_teamcompetitor
+        WHERE
+        team_id =
+        #{teamId}
+    </delete>
+    <update id="updateTeamCompetitor" parameterType="com.ctfplatform.demo.entity.TeamCompetitor">
+        UPDATE tb_teamcompetitor
+        <set>
+            <if test="competitorLevel!=null">competitor_level=#{competitorLevel}</if>
+        </set>
+        WHERE
+        teamcompetitor_id=#{teamcompetitorId}
+    </update>
+</mapper>

@@ -1,0 +1,88 @@
+@charset "UTF-8";
+
+.m-login {
+    margin: 0 auto;
+    height: 510px;
+    width: 1000px;
+    color: #666;
+}
+
+.login-wrap {
+    margin: 0 auto;
+    width: 500px;
+}
+
+.login-form {
+    margin: 0 auto;
+    width: 500px;
+    text-align: center;
+}
+
+.login-title {
+    position: relative;
+    left: 33px;
+    height: 100px;
+    line-height: 100px;
+}
+
+.login-main {
+    margin-top: 30px;
+}
+
+.login-p {
+    position: relative;
+    margin: 0;
+    width: 100%;
+    clear: both;
+    height: 65px;
+    line-height: 52px;
+}
+
+.login-label {
+    display: block;
+    float: left;
+    height: 52px;
+    width: 72px;
+    line-height: 52px;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: right;
+}
+
+.login-p input {
+    padding: 10px 12px;
+	box-sizing: border-box;
+    width: 350px;
+    font-size: 16px;
+    border: 1px solid #999;
+    color: #333;
+}
+
+.login-p input[readonly='readonly'] {
+    cursor: not-allowed;
+    background-color: #eee;
+}
+
+.login-btn {
+    position: relative;
+    float: left;
+    left: 109px;
+    margin: 30px 0;
+    padding: 10px 15px;
+	font-size: 16px;
+    width: 350px;
+	display: inline-block;
+	box-sizing: border-box;
+	background: #3f89ec;
+	color: #fff;
+}
+
+.login-message {
+    position: absolute;
+    top: 220px;
+    left: 625px;
+    width: 350px;
+    color: #f00;
+    text-align: center;
+}
+

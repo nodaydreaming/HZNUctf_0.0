@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ctfplatform.demo.dao.QuestionDao">
+    <select id="queryQuestion" resultType="com.ctfplatform.demo.entity.Question">
+        SELECT *
+        FROM
+        tb_question
+    </select>
+    <insert id="insertQuestion" parameterType="com.ctfplatform.demo.entity.Question">
+        <selectKey resultType="Integer" order="BEFORE" keyProperty="questionId">
+            select max(question_id)+1 as questionId from tb_question
+        </selectKey>
+        INSERT INTO
+        tb_question(question_id,question_title,question_type_id,question_body,question_resource,question_answer,
+        question_create_time,admin_id,question_author,question_point,question_decrease,question_additional,question_level)
+        VALUES
+        (#{questionId},#{questionTitle},#{questionTypeId},#{questionBody},#{questionResource},#{questionAnswer},
+        #{questionCreateTime},#{adminId},#{questionAuthor},#{questionPoint},#{questionDecrease},#{questionAdditional},#{questionLevel})
+    </insert>
+    <update id="updateQuestion" parameterType="com.ctfplatform.demo.entity.Question">
+        UPDATE tb_question
+        <set>
+            <if test="questionTitle!=null">question_title=#{questionTitle},</if>
+            <if test="questionTypeId!=null">question_type_id=#{questionTypeId},</if>
+            <if test="questionBody!=null">question_body=#{questionBody},</if>
+            <if test="questionResource!=null">question_resource=#{questionResource},</if>
+            <if test="questionAnswer!=null">question_answer=#{questionAnswer},</if>
+            <if test="questionCreateTime!=null">question_create_time=#{questionCreateTime},</if>
+            <if test="adminId!=null">admin_id=#{adminId},</if>
+            <if test="questionAuthor!=null">question_author=#{questionAuthor},</if>
+            <if test="questionPoint!=null">question_point=#{questionPoint},</if>
+            <if test="questionDecrease!=null">question_decrease=#{questionDecrease},</if>
+            <if test="questionAdditional!=null">question_additional=#{questionAdditional},</if>
+            <if test="questionLevel!=null">question_level=#{questionLevel}</if>
+        </set>
+        WHERE
+        question_id=#{questionId}
+    </update>
+    <delete id="deleteQuestion" parameterType="com.ctfplatform.demo.entity.Question">
+        DELETE FROM
+        tb_question
+        WHERE
+        question_id=#{questionId}
+    </delete>
+</mapper>

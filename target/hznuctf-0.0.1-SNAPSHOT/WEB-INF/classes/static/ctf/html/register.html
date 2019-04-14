@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <title>注册账号</title>
+  <link rel="stylesheet" href="../navAndFooter.css">
+  <link rel="stylesheet" href="../css/resiter.css" />
+  <link rel="icon" href="../img/dunpai.ico" type="image/x-ico">
+</head>
+<body>
+  <div id="container">
+    <nav>
+      <div class="nav-left">
+        <p class="CTF">
+          <span>CTF</span>
+          <span class="CTF-logo">
+            <img src="../img/dunpai.png" alt="">
+          </span>
+        </p>
+        <p class="HZNU">HZNU</p>
+      </div>
+      <div class="nav-middle">
+        <ul>
+          <li class="nav-li-1"><a href="../home.html">Home</a></li>
+          <li class="nav-li-2"><a href="javascript:void(0)">Problems</a></li>
+          <li class="nav-li-3"><a href="challenges.html">Challenges</a></li>
+          <li class="nav-li-4"><a href="javascript:void(0)">Scoreboard</a></li>
+        </ul>
+      </div>
+      <div class="nav-right">
+        <div class="nav-right-a">
+
+        </div>
+      </div>
+    </nav>
+
+    <div class="m-register">
+      <div class="register-wrap">
+        <form class="register-form">
+          <div class="register-title">
+            <h1>Welcome to HZNU-CTF</h1>
+          </div>
+          <div class="register-main">
+            <p class="register-p">
+              <label class="register-label">用户名</label>
+              <input class="userName" type="text" placeholder="3-20个小写字母或数字，用于登录">
+            </p>
+            <p class="register-p">
+              <label class="register-label">密码</label>
+              <input class="passWord" type="password" placeholder="5-15个小写字母或数字，用于登录">
+            </p>
+            <div class="register-radio">
+              <label class="register-label">性别</label>
+              <span>
+                男
+                <input name="gender" type="radio" class="register-gender" value="男">
+              </span>
+              <span>
+                女
+                <input name="gender" type="radio" class="register-gender" value="女">
+              </span>
+            </div>
+            <p class="register-p">
+              <label class="register-label">昵称</label>
+              <input class="nikeName" type="text" placeholder="1-15个字符">
+            </p>
+            <p class="register-p">
+              <label class="register-label">真实姓名</label>
+              <input class="realName" type="text">
+            </p>
+            <p class="register-p">
+              <label class="register-label">手机号</label>
+              <input class="phoneNumber" type="text" placeholder="11位长号">
+            </p>
+            <p class="register-p">
+              <label class="register-label">学号</label>
+              <input class="studentNumber" type="text" placeholder="13位数字">
+            </p>
+            <p class="register-p">
+              <label class="register-label">学院</label>
+              <select name="" id="" class="register-select">
+                <div class="register-option-list">
+                  <option selected="selected" disabled="disabled" style="display: none" value=""></option>
+                  <option value="" class="register-option">杭州国际服务工程学院</option>
+                  <option value="" class="register-option">理学院</option>
+                  <option value="" class="register-option">文化创意学院</option>
+                  <option value="" class="register-option">外国语学院</option>
+                  <option value="" class="register-option">政治与社会学院</option>
+                  <option value="" class="register-option">经济与管理学院</option>
+                  <option value="" class="register-option">沈钧儒法学院</option>
+                  <option value="" class="register-option">教育学院</option>
+                  <option value="" class="register-option">医学院</option>
+                  <option value="" class="register-option">材料与化学化工学院</option>
+                  <option value="" class="register-option">阿里巴巴商学院</option>
+                  <option value="" class="register-option">经亨颐学院</option>
+                  <option value="" class="register-option">生命与环境科学学院</option>
+                  <option value="" class="register-option">体育与健康学院</option>
+                  <option value="" class="register-option">美术学院</option>
+                  <option value="" class="register-option">人文学院</option>
+                </div>
+              </select>
+            </p>
+            <p class="register-p">
+              <label class="register-label">班级</label>
+              <input class="className" type="text" placeholder="专业 + 班级">
+            </p>
+            <a href="javasctipt:void(0)" class="register-btn">注册</a>
+          </div>
+        </form>
+
+        <div class="register-message">
+          <span class="register-msg"></span>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      Copyright &#169; 2019,HZNUNISL, All rights reverved.
+    </footer>
+  </div>
+
+  <script src="../js/jquery-3.3.1.js"></script>
+  <script src="../js/development.js"></script>
+  <script src="../js/register.js"></script>
+</body>
+
+</html>

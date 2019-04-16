@@ -61,7 +61,7 @@ function getCompetitionStatus() {
                         $('#btns').append(btn);
                     }
                     else if(parseInt(c.competitionCanregister) == 1){
-                        getUserStatus();
+                        getUserStatus(c);
                     }
                 }
             }
@@ -77,7 +77,8 @@ function getCompetitionStatus() {
 //获得用户和此场比赛的关系，是否报名，
 //如果报名了，显示队伍名，和队伍成员，队长信息等
 //出现取消报名的按钮
-function getUserStatus() {
+function getUserStatus(competition) {
+    var now  = new Date();
     $.ajax({
         url: '../../send/getUserStatus',
         data : {"number": competitionNumber},
@@ -107,16 +108,30 @@ function getUserStatus() {
                     }
                     p.innerHTML = pText;
                     $('#btns').append(p);
-                    //取消报名按钮
-                    var btn = document.createElement("button");
-                    btn.className = "layui-btn layui-btn-radius layui-btn-danger";
-                    btn.style.height = "60px";
-                    btn.style.width = "150px";
-                    btn.style.fontSize = "25px";
-                    btn.style.marginTop = "5%";
-                    btn.innerText = "取消报名";
-                    btn.onclick = cancelRegistration;
-                    $('#btns').append(btn);
+                    if(now > new Date(competition.competitionStart)){
+                        //跳转到比赛页面
+                        var btn = document.createElement("button");
+                        btn.className = "layui-btn layui-btn-radius";
+                        btn.style.height = "60px";
+                        btn.style.width = "150px";
+                        btn.style.fontSize = "25px";
+                        btn.style.marginTop = "5%";
+                        btn.innerText = "开始答题";
+                        btn.onclick = goCompetition;
+                        $('#btns').append(btn);
+                    }
+                    else{
+                        //取消报名按钮
+                        var btn = document.createElement("button");
+                        btn.className = "layui-btn layui-btn-radius layui-btn-danger";
+                        btn.style.height = "60px";
+                        btn.style.width = "150px";
+                        btn.style.fontSize = "25px";
+                        btn.style.marginTop = "5%";
+                        btn.innerText = "取消报名";
+                        btn.onclick = cancelRegistration;
+                        $('#btns').append(btn);
+                    }
                 }
                 else{
                     //用户还未报名
@@ -131,7 +146,9 @@ function getUserStatus() {
         }
     });
 }
-
+function goCompetition() {
+    window.location.href = "../../../ctf";
+}
 function cancelRegistration() {
     $.ajax({
         url : '../../CompetitionUser/deleteCompetitionUser',
@@ -279,7 +296,7 @@ function create_team() {
                         type: 1,
                         offset: 'auto',
                         id: 'layerDemo2', //防止重复弹出
-                        content: '<div style="padding: 20px">' + "成功创建队伍 "+team_name+ '</div>',
+                        content: '<div style="padding: 20px 100px;">' + "成功创建队伍 "+team_name+ '</div>',
                         btn: '关闭',
                         btnAlign: 'c', //按钮居中
                         shade: 0.5, //不显示遮罩
@@ -364,10 +381,10 @@ function joinTeam() {
 
 function join_team() {
     var team_name = $("#team_name").val();
-    if (team_name == "" || team_name == null) {
+    if(team_name == "" || team_name == null){
         layer.tips("请填写队伍名称", "#team_name");
     }
-    else {
+    else{
         $.ajax({
             url: '../../TeamCompetitor/insertTeamCompetitor',
             data: {
@@ -382,7 +399,7 @@ function join_team() {
                         type: 1,
                         offset: 'auto',
                         id: 'layerDemo2', //防止重复弹出
-                        content: '<div style="padding: 20px 100px;">' + "成功加入队伍 " + team_name + '</div>',
+                        content: '<div style="padding: 20px 100px;">' + "成功加入队伍 "+team_name+ '</div>',
                         btn: '关闭',
                         btnAlign: 'c', //按钮居中
                         shade: 0.5, //不显示遮罩
@@ -396,7 +413,7 @@ function join_team() {
                     $.ajax({
                         url: '../../CompetitionUser/addCompetitionUser',
                         data: {
-                            "number": competitionNumber     //给后端比赛id
+                            "number":competitionNumber     //给后端比赛id
                         },
                         type: 'post',
                         scriptCharset: 'utf-8',
@@ -404,7 +421,7 @@ function join_team() {
                             if (result.message == null) {
                                 // layer.msg("报名成功！");
                             }
-                            else {
+                            else{
                                 layer.msg(result.message);
                             }
                         },
@@ -414,7 +431,7 @@ function join_team() {
                     });
                     //--------
                 }
-                else {
+                else{
                     layer.msg(result.message);
                 }
             },
@@ -424,3 +441,4 @@ function join_team() {
         });
     }
 }
+

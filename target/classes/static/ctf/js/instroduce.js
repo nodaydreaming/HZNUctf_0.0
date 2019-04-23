@@ -1,7 +1,7 @@
 window.onload = function () {
-    let createbt = document.getElementById('createTeam');
-    let addbt = document.getElementById('addTeam');
-    let login = document.getElementsByClassName('nav-right-a')[0];
+    var createbt = document.getElementById('createTeam');
+    var addbt = document.getElementById('addTeam');
+    var login = document.getElementsByClassName('nav-right-a')[0];
 
     $.ajax({
         url: '../../user/getUserMap',
@@ -27,13 +27,13 @@ window.onload = function () {
     //判断是否登陆
     function rightTop(result) {
         if (result.loginUser == null) {
-            let unLogin_0 = document.createElement('a');
+            var unLogin_0 = document.createElement('a');
             unLogin_0.className = 'unLogin nav-right-a-first';
             unLogin_0.innerText = 'Login';
             unLogin_0.href = '../html/login.html';
             login.appendChild(unLogin_0);
 
-            let unLogin_1 = document.createElement('a');
+            var unLogin_1 = document.createElement('a');
             unLogin_1.className = 'unLogin';
             unLogin_1.innerText = 'Register';
             unLogin_1.href = '../html/register.html';
@@ -46,16 +46,16 @@ window.onload = function () {
                 window.location.href = '../html/login.html';
             })
         } else {
-            let isLogin_1 = document.createElement('a');
+            var isLogin_1 = document.createElement('a');
             isLogin_1.className = 'nav-info isLogin';
             isLogin_1.href = '../html/personal.html';
             login.appendChild(isLogin_1);
-            let isLogin_1img = document.createElement('img');
+            var isLogin_1img = document.createElement('img');
             isLogin_1img.src = '../img/loginout.png';
             isLogin_1.title = "退出登录";
             isLogin_1.appendChild(isLogin_1img);
 
-            let isLogin_0 = document.createElement('a');
+            var isLogin_0 = document.createElement('a');
             isLogin_0.className = 'isLogin';
             isLogin_0.innerText = result.loginUser.competitorNickname;
             isLogin_0.href = '../html/personal.html';
@@ -63,9 +63,9 @@ window.onload = function () {
             login.appendChild(isLogin_0);
 
             //--- 登录成功后为按钮添加事件--
-            createbt.addEventListener('click', () => {
+            createbt.onclick = function() {
 
-                let createTeamName = prompt('创建队伍：', '队伍名');
+                var createTeamName = prompt('创建队伍：', '队伍名');
                 if (createTeamName == '' || createTeamName.length > 8) {
                     alert('格式错误！队伍名非法或过长');
                 } else {
@@ -112,11 +112,11 @@ window.onload = function () {
                 }
 
 
-            })
+            }
 
-            addbt.addEventListener('click', () => {
+            addbt.onclick = function() {
 
-                let addTeamName = prompt('加入队伍：', '队伍名');
+                var addTeamName = prompt('加入队伍：', '队伍名');
                 if (addTeamName == '' || addTeamName.length > 8) {
                     alert('格式错误！队伍名非法或过长');
                 } else {
@@ -162,7 +162,7 @@ window.onload = function () {
                 }
 
 
-            })
+            }
 
             //--- 登录成功后为按钮添加事件--
         }

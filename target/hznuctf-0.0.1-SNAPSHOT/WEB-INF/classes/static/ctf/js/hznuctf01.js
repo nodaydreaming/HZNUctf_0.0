@@ -441,4 +441,8 @@ function join_team() {
         });
     }
 }
+function inputLimit(){
+    var input = window.event.target;
+    input.value = input.value.substring(0,100); if(window.event.keyCode ==13) return false;
+}
 

@@ -41,33 +41,34 @@ public class UserServiceImpl implements UserService {
     public Map<String,Object> register(User user) {
         Map<String,Object> modelMap = new HashMap<String,Object>();
         if(userDao.queryPasswordByUsername(user.getCompetitorUsername()) == null ){    //判断该账号数据库中是否存在
-            if(user.getCompetitorUsername() != null && !"".equals(user.getCompetitorUsername())){   //判断用户输入的账号是否为空
-                String pwd = user.getCompetitorPassword();
-                if(pwd != null && !"".equals(pwd)){
-                    RSA rsa = new RSA();
-                    String pass = null;
-                    try {
-                        pass = rsa.testEncrypt(rsa.privateKey, pwd);
-                        user.setCompetitorPassword(pass);
-                    } catch (InvalidKeyException | NoSuchAlgorithmException | InvalidKeySpecException | NoSuchPaddingException
-                            | IllegalBlockSizeException | BadPaddingException | IOException e) {
-                        modelMap.put("message","RSA加密失败");
+            if(userDao.queryUserByTelorNumber(user.getCompetitorTel(),user.getCompetitorStudentnumber()) == null) {
+                if (user.getCompetitorUsername() != null && !"".equals(user.getCompetitorUsername())) {   //判断用户输入的账号是否为空
+                    String pwd = user.getCompetitorPassword();
+                    if (pwd != null && !"".equals(pwd)) {
+                        RSA rsa = new RSA();
+                        String pass = null;
+                        try {
+                            pass = rsa.testEncrypt(rsa.privateKey, pwd);
+                            user.setCompetitorPassword(pass);
+                        } catch (InvalidKeyException | NoSuchAlgorithmException | InvalidKeySpecException | NoSuchPaddingException
+                                | IllegalBlockSizeException | BadPaddingException | IOException e) {
+                            modelMap.put("message", "RSA加密失败");
+                        }
+                        int effectedNum = userDao.insertUser(user);
+                        if (effectedNum > 0) {
+                        } else {
+                            modelMap.put("message", "注册信息失败");
+                        }
+                    } else {
+                        modelMap.put("message", "密码不空");
                     }
-                    int effectedNum = userDao.insertUser(user);
-                    if(effectedNum > 0){
-                    }
-                    else{
-                        modelMap.put("message","注册信息失败");
-                    }
-                }else{
-                    modelMap.put("message","密码不空");
+                } else {
+                    modelMap.put("message", "账号不空");
                 }
-            }
-            else{
-                modelMap.put("message","账号不空");
+            }else{
+                modelMap.put("message","手机号或学号重复");
             }
         }else{
-            System.out.println("账号已存在");
             modelMap.put("message","账号已存在");
         }
         return modelMap;

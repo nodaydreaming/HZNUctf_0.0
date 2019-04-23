@@ -151,7 +151,7 @@ function goCompetition() {
 }
 function cancelRegistration() {
     $.ajax({
-        url : '../../CompetitionUser/deleteCompetitionUser',
+        url : '../../CompetitionUser/devareCompetitionUser',
         type : 'post',
         data : {"number": competitionNumber},
         scriptCharset : 'utf-8',
@@ -184,37 +184,37 @@ function cancelRegistration() {
 
 //判断是否登陆
 function rightTop(result) {
-    let login = document.getElementsByClassName('nav-right-a')[0];
+    var login = document.getElementsByClassName('nav-right-a')[0];
     if (result.loginUser == null) {
-        let unLogin_0 = document.createElement('a');
+        var unLogin_0 = document.createElement('a');
         unLogin_0.className = 'unLogin nav-right-a-first';
         unLogin_0.innerText = 'Login';
         unLogin_0.href = '../html/login.html';
         login.appendChild(unLogin_0);
 
-        let unLogin_1 = document.createElement('a');
+        var unLogin_1 = document.createElement('a');
         unLogin_1.className = 'unLogin';
         unLogin_1.innerText = 'Register';
         unLogin_1.href = '../html/register.html';
         login.appendChild(unLogin_1);
     } else {
-        let isLogin_1 = document.createElement('a');
+        var isLogin_1 = document.createElement('a');
         isLogin_1.className = 'nav-info isLogin';
         isLogin_1.href = '../html/personal.html';
         login.appendChild(isLogin_1);
-        let isLogin_1img = document.createElement('img');
+        var isLogin_1img = document.createElement('img');
         isLogin_1img.src = '../img/loginout.png';
         isLogin_1.title = "退出登录";
         isLogin_1.appendChild(isLogin_1img);
 
-        let isLogin_0 = document.createElement('a');
+        var isLogin_0 = document.createElement('a');
         isLogin_0.className = 'isLogin';
         isLogin_0.innerText = result.loginUser.competitorNickname;
         isLogin_0.href = '../html/personal.html';
         isLogin_0.title = "个人信息";
         login.appendChild(isLogin_0);
 
-        isLogin_1.addEventListener('click', () => {
+        isLogin_1.onclick = function() {
             $.ajax({
                 url: '../../user/quxiao',
                 type: 'post',
@@ -231,7 +231,7 @@ function rightTop(result) {
                     console.log("请求失败！");
                 }
             });
-        })
+        }
     }
 }
 
@@ -251,7 +251,7 @@ function createTeam() {
                 '    <div class="layui-form-item">\n' +
                 '        <label class="layui-form-label">队伍名称</label>\n' +
                 '        <div class="layui-input-block">\n' +
-                '            <input type="text" id="team_name" autocomplete="off" placeholder="请输入要创建的队伍名称" required class="layui-input" style="width: 80%;" onchange="inputLimit()" onkeydown="inputLimit()" onkeyup="inputLimit()">\n' +
+                '            <input type="text" id="team_name" autocompvare="off" placeholder="请输入要创建的队伍名称" required class="layui-input" style="width: 80%;" onchange="inputLimit()" onkeydown="inputLimit()" onkeyup="inputLimit()">\n' +
                 '        </div>\n' +
                 '    </div>\n' +
                 '</form>\n' +
@@ -354,7 +354,7 @@ function joinTeam() {
                 '    <div class="layui-form-item">\n' +
                 '        <label class="layui-form-label">队伍名称</label>\n' +
                 '        <div class="layui-input-block">\n' +
-                '            <input type="text" id="team_name" autocomplete="off" placeholder="请输入要加入的队伍名称" required class="layui-input" style="width: 80%;" onchange="inputLimit()" onkeydown="inputLimit()" onkeyup="inputLimit()">\n' +
+                '            <input type="text" id="team_name" autocompvare="off" placeholder="请输入要加入的队伍名称" required class="layui-input" style="width: 80%;" onchange="inputLimit()" onkeydown="inputLimit()" onkeyup="inputLimit()">\n' +
                 '        </div>\n' +
                 '    </div>\n' +
                 '</form>\n' +
@@ -440,5 +440,9 @@ function join_team() {
             }
         });
     }
+}
+function inputLimit(){
+    var input = window.event.target;
+    input.value = input.value.substring(0,100); if(window.event.keyCode ==13) return false;
 }
 

@@ -100,7 +100,7 @@ public class UserController {
                 }
             }
             if(newflag == 0){
-                modelMap.put("message","学院不属于杭师大");
+                modelMap.put("message","请重新选择学院");
                 flag=0;
             }
         } else if (user.getCompetitorClass() == null || "".equals(user.getCompetitorClass()) || user.getCompetitorClass().length() > 13) {

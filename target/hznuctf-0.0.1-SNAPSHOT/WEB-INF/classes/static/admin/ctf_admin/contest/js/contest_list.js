@@ -574,7 +574,7 @@ function get_registration(){
         offset: 'auto',
         skin: 'layui-layer-lan',
         id: 'layerDemo_users', //防止重复弹出
-        area: ['1200px', '600px'],
+        area: ['1200px', '650px'],
         content: '<table class="layui-hide" id="test" lay-filter="test"></table>\n' +
             '<script type="text/html" id="barDemo">\n          ' +
             '<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>\n        ' +
@@ -588,16 +588,16 @@ function get_registration(){
             ',toolbar: \'#toolbarDemo\'\n            ' +
             ',title: \'已报名列表\'\n            ' +
             ',cols: [[\n              ' +
-            ',{field: \'id\', title: \'ID\', style:"width:60px",minWidth:70, sort: true, fixed: \'left\', unresize: true}\n              ' +
-            ',{field:\'username\', title:\'用户名\', width:100,sort: true, unresize: true}\n              ' +
-            ',{field:\'name\', title:\'姓名\', width:100,sort: true, unresize: true}\n              ' +
-            ',{field:\'gender\', title:\'性别\', width:70,sort: true, unresize: true}\n              ' +
-            ',{field:\'college\', title:\'学院\', width:190,sort: true, unresize: true}\n              ' +
-            ',{field:\'professional\', title:\'班级\', width:110,sort: true, unresize: true}\n              ' +
-            ',{field:\'number\', title:\'学号\', width:150,sort: true, unresize: true}\n              ' +
-            ',{field:\'date\', title:\'报名时间\', width:190,sort: true, unresize: true}\n              ' +
-            ',{field:\'teamName\', title:\'队伍名\', width:130,sort: true, unresize: true}\n              ' +
-            ',{title:\'操作\', toolbar: \'#barDemo\', width:80, unresize: true}\n            ' +
+            ',{field: \'id\', title: \'ID\', style:"width:70px" , minWidth:70, width:70, sort: true, fixed: \'left\', unresize: true}\n              ' +
+            ',{field:\'username\', style:"padding-left:15px", title:\'用户名\', width:100,sort: true}\n              ' +
+            ',{field:\'name\', title:\'姓名\', width:100,sort: true}\n              ' +
+            ',{field:\'gender\', title:\'性别\', width:70,sort: true}\n              ' +
+            ',{field:\'college\', title:\'学院\', width:190,sort: true}\n              ' +
+            ',{field:\'professional\', title:\'班级\', width:110,sort: true}\n              ' +
+            ',{field:\'number\', title:\'学号\', width:150,sort: true}\n              ' +
+            ',{field:\'date\', title:\'报名时间\', width:190,sort: true}\n              ' +
+            ',{field:\'teamName\', title:\'队伍名\', width:130,sort: true}\n              ' +
+            ',{title:\'操作\', toolbar: \'#barDemo\', width:80}\n            ' +
             ']]\n            ' +
             ',page: true\n          ' +
             '});\n          \n          ' +
@@ -1163,11 +1163,65 @@ function sendData() {
             }
         }
     });
-
 }
+var dataMessage;
 function sendDataToCompetition(result, ip, port, account, password) {
-    var ws = new WebSocket("ws://"+ip+":"+port+"?account="+account+"&password="+password);
+    var address = "ws://"+ip+":"+port+"?account="+account+"&password="+password;
+    // address = "ws://"+"192.168.3.56"+":"+port+"?account="+account+"&password="+password;
+    dataMessage={"address":address,"result":result};
+    layer.open({
+        type: 1,
+        offset: 'auto',
+        skin: 'layui-layer-lan',
+        id: 'layerDemo1', //防止重复弹出
+        area: ['750px', '300px'],
+        content:'<form class="layui-form" action="" id="updateContest" style="margin:20px 0 0 5%; font-size:15px">\n' +
+            '<a class="layui-btn layui-btn-primary layui-btn-xs" onclick="sendCompetition()">' +
+            '<i class="layui-icon layui-icon-release"></i>' +
+            '发送比赛基本信息' +
+            '</a>'+
+            '<br>'+
+            '<a style="margin-top: 10px" class="layui-btn layui-btn-primary layui-btn-xs" onclick="sendProblems()">' +
+            '<i class="layui-icon layui-icon-release"></i>' +
+            '发送比赛题目信息' +
+            '</a>'+
+            '<br>'+
+            '<a style="margin-top: 10px" class="layui-btn layui-btn-primary layui-btn-xs" onclick="sendAdmins()">' +
+            '<i class="layui-icon layui-icon-release"></i>' +
+            '发送比赛管理员信息' +
+            '</a>'+
+            '<br>'+
+            '<a style="margin-top: 10px" class="layui-btn layui-btn-primary layui-btn-xs" onclick="sendCompetitors()">' +
+            '<i class="layui-icon layui-icon-release"></i>' +
+            '发送比赛选手信息' +
+            '</a>'+
+            '<br>'+
+            '<a style="margin-top: 10px" class="layui-btn layui-btn-primary layui-btn-xs" onclick="sendTeams()">' +
+            '<i class="layui-icon layui-icon-release"></i>' +
+            '发送比赛队伍信息' +
+            '</a>'+
+            '</form>' +
+            '<script>\n' +
+            '    layui.use(\'form\', function(){\n' +
+            '    var form = layui.form;\n' +
+            '        form.render();\n' +
+            '        form.verify();' +
+            '    });\n' +
+            '</script>',
+        btn: ['取消'],
+        btnAlign: 'c',
+        shade: 0.5,
+        title: "发送比赛信息",
+        btn1 : function () {
+            layer.closeAll();
+        }
+    });
+}
 
+function sendCompetition() {
+    var address  = dataMessage.address;
+    var result = dataMessage.result;
+    var ws = new WebSocket(address);
     ws.onopen = function () {
         ws.send(JSON.stringify({
             key: 'requestAddCompetitions',
@@ -1175,32 +1229,260 @@ function sendDataToCompetition(result, ip, port, account, password) {
                 competitions: result.competitions
             }
         }));
-        ws.send(JSON.stringify({
-            key: 'requestAddCompetitors',
-            params: {
-                competitors: result.competitors
+        // ws.send(JSON.stringify({
+        //     key: 'requestAddCompetitors',
+        //     params: {
+        //         competitors: result.competitors,
+        //         replace : true
+        //     }
+        // }));
+        // ws.send(JSON.stringify({
+        //     key: 'requestAddTeams',
+        //     params: {
+        //         teams: result.teams,
+        //         replace : true
+        //     }
+        // }));
+        // ws.send(JSON.stringify({
+        //     key:'requestAddAdmins',
+        //     params:{
+        //         admins:result.admins
+        //     }
+        // }));
+        // ws.send(JSON.stringify({
+        //     key:'requestAddProblems',
+        //     params:{
+        //         problems:result.problems
+        //     }
+        // }));
+        layer.open({
+            type: 1,
+            offset: 'auto', //具体配置参考：http://www.layui.com/doc/modules/layer.html#offset
+            id: 'layerDemo2', //防止重复弹出
+            content: '<div style="padding: 20px 20px;">' + "发送比赛基本信息成功！" + '</div>',
+            btn: '确定',
+            btnAlign: 'c', //按钮居中
+            shade: 0.5, //不显示遮罩
+            title: "HZNUCTF",
+            yes : function (index) {
+                ws.close();
+                layer.close(index);
             }
-        }));
-        ws.send(JSON.stringify({
-            key: 'requestAddTeams',
-            params: {
-                teams: result.teams
-            }
-        }));
-        ws.send(JSON.stringify({
-            key:'requestAddAdmins',
-            params:{
-                admins:result.admins
-            }
-        }));
+        });
+    }
+}
+function sendProblems(){
+    var address  = dataMessage.address;
+    var result = dataMessage.result;
+    var ws = new WebSocket(address);
+    ws.onopen = function () {
+        // ws.send(JSON.stringify({
+        //     key: 'requestAddCompetitions',
+        //     params: {
+        //         competitions: result.competitions
+        //     }
+        // }));
+        // ws.send(JSON.stringify({
+        //     key: 'requestAddCompetitors',
+        //     params: {
+        //         competitors: result.competitors,
+        //         replace : true
+        //     }
+        // }));
+        // ws.send(JSON.stringify({
+        //     key: 'requestAddTeams',
+        //     params: {
+        //         teams: result.teams,
+        //         replace : true
+        //     }
+        // }));
+        // ws.send(JSON.stringify({
+        //     key:'requestAddAdmins',
+        //     params:{
+        //         admins:result.admins
+        //     }
+        // }));
         ws.send(JSON.stringify({
             key:'requestAddProblems',
             params:{
                 problems:result.problems
             }
         }));
-        layer.closeAll();
+        layer.open({
+            type: 1,
+            offset: 'auto', //具体配置参考：http://www.layui.com/doc/modules/layer.html#offset
+            id: 'layerDemo2', //防止重复弹出
+            content: '<div style="padding: 20px 20px;">' + "发送比赛题目信息成功！" + '</div>',
+            btn: '确定',
+            btnAlign: 'c', //按钮居中
+            shade: 0.5, //不显示遮罩
+            title: "HZNUCTF",
+            yes : function (index) {
+                ws.close();
+                layer.close(index);
+            }
+        });
     }
+}
+function sendAdmins(){
+    var address  = dataMessage.address;
+    var result = dataMessage.result;
+    var ws = new WebSocket(address);
+    ws.onopen = function () {
+        // ws.send(JSON.stringify({
+        //     key: 'requestAddCompetitions',
+        //     params: {
+        //         competitions: result.competitions
+        //     }
+        // }));
+        // ws.send(JSON.stringify({
+        //     key: 'requestAddCompetitors',
+        //     params: {
+        //         competitors: result.competitors,
+        //         replace : true
+        //     }
+        // }));
+        ws.send(JSON.stringify({
+            key: 'requestAddTeams',
+            params: {
+                teams: result.teams,
+                replace : true
+            }
+        }));
+        // ws.send(JSON.stringify({
+        //     key:'requestAddAdmins',
+        //     params:{
+        //         admins:result.admins
+        //     }
+        // }));
+        // ws.send(JSON.stringify({
+        //     key:'requestAddProblems',
+        //     params:{
+        //         problems:result.problems
+        //     }
+        // }));
+        layer.open({
+            type: 1,
+            offset: 'auto', //具体配置参考：http://www.layui.com/doc/modules/layer.html#offset
+            id: 'layerDemo2', //防止重复弹出
+            content: '<div style="padding: 20px 20px;">' + "发送比赛管理员信息成功！" + '</div>',
+            btn: '确定',
+            btnAlign: 'c', //按钮居中
+            shade: 0.5, //不显示遮罩
+            title: "HZNUCTF",
+            yes : function (index) {
+                ws.close();
+                layer.close(index);
+            }
+        });
+    }
+}
+function sendCompetitors(){
+    var address  = dataMessage.address;
+    var result = dataMessage.result;
+    var ws = new WebSocket(address);
+    ws.onopen = function () {
+        // ws.send(JSON.stringify({
+        //     key: 'requestAddCompetitions',
+        //     params: {
+        //         competitions: result.competitions
+        //     }
+        // }));
+        ws.send(JSON.stringify({
+            key: 'requestAddCompetitors',
+            params: {
+                competitors: result.competitors,
+                replace : true
+            }
+        }));
+        // ws.send(JSON.stringify({
+        //     key: 'requestAddTeams',
+        //     params: {
+        //         teams: result.teams,
+        //         replace : true
+        //     }
+        // }));
+        // ws.send(JSON.stringify({
+        //     key:'requestAddAdmins',
+        //     params:{
+        //         admins:result.admins
+        //     }
+        // }));
+        // ws.send(JSON.stringify({
+        //     key:'requestAddProblems',
+        //     params:{
+        //         problems:result.problems
+        //     }
+        // }));
+        layer.open({
+            type: 1,
+            offset: 'auto', //具体配置参考：http://www.layui.com/doc/modules/layer.html#offset
+            id: 'layerDemo2', //防止重复弹出
+            content: '<div style="padding: 20px 20px;">' + "发送比赛选手信息成功！" + '</div>',
+            btn: '确定',
+            btnAlign: 'c', //按钮居中
+            shade: 0.5, //不显示遮罩
+            title: "HZNUCTF",
+            yes : function (index) {
+                ws.close();
+                layer.close(index);
+            }
+        });
+    }
+}
+function sendTeams(){
+    var address  = dataMessage.address;
+    var result = dataMessage.result;
+    var ws = new WebSocket(address);
+    ws.onopen = function () {
+        // ws.send(JSON.stringify({
+        //     key: 'requestAddCompetitions',
+        //     params: {
+        //         competitions: result.competitions
+        //     }
+        // }));
+        // ws.send(JSON.stringify({
+        //     key: 'requestAddCompetitors',
+        //     params: {
+        //         competitors: result.competitors,
+        //         replace : true
+        //     }
+        // }));
+        ws.send(JSON.stringify({
+            key: 'requestAddTeams',
+            params: {
+                teams: result.teams,
+                replace : true
+            }
+        }));
+        // ws.send(JSON.stringify({
+        //     key:'requestAddAdmins',
+        //     params:{
+        //         admins:result.admins
+        //     }
+        // }));
+        // ws.send(JSON.stringify({
+        //     key:'requestAddProblems',
+        //     params:{
+        //         problems:result.problems
+        //     }
+        // }));
+        layer.open({
+            type: 1,
+            offset: 'auto', //具体配置参考：http://www.layui.com/doc/modules/layer.html#offset
+            id: 'layerDemo2', //防止重复弹出
+            content: '<div style="padding: 20px 20px;">' + "发送比赛队伍信息成功！" + '</div>',
+            btn: '确定',
+            btnAlign: 'c', //按钮居中
+            shade: 0.5, //不显示遮罩
+            title: "HZNUCTF",
+            yes : function (index) {
+                ws.close();
+                layer.close(index);
+            }
+        });
+    }
+
 }
 
 Date.prototype.Format = function(fmt) {

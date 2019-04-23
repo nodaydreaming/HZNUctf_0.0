@@ -59,6 +59,7 @@ com\ctfplatform\demo\service\RecordService.class
 com\ctfplatform\demo\Handler\ControllerExceptionHandler.class
 com\ctfplatform\demo\entity\Team.class
 com\ctfplatform\demo\service\UserService.class
+com\ctfplatform\demo\dao\SendCompetitorDao.class
 com\ctfplatform\demo\web\DefaultController.class
 com\ctfplatform\demo\service\TeamService.class
 com\ctfplatform\demo\entity\Admin.class

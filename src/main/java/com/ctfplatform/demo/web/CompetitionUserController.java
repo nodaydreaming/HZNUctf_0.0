@@ -73,7 +73,20 @@ public class CompetitionUserController {
             modelMap.put("message","通过比赛Number为找到比赛");
         }
         return modelMap;
+    }
+    @RequestMapping(value = "/adminCancelRegistration", method = RequestMethod.POST)
+    private Map<String, Object> adminCancelRegistration(String number, String username){
+        Map<String,Object> modelMap = new HashMap<String,Object>();
+        User user = userService.queryUserByUsername(username);
+        Competition competition = competitionService.queryCompetitionByNumber(number);
 
+        if(competition != null){
+            CompetitionUser competitionUser = competitionUserService.getCompeititonUserByUserIdAndCompetitionId(user.getCompetitorId(), competition.getCompetitionId());
+            modelMap.put("message",competitionUserService.deleteCompetitionUser(competitionUser).get("message"));
+        }else{
+            modelMap.put("message","通过比赛Number为找到比赛");
+        }
+        return modelMap;
     }
     @RequestMapping(value = "/getCompetitionIsParticipate",method = RequestMethod.POST)
     private Map<String,Object> getCompetitionIsParticipate(HttpServletRequest request){

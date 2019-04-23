@@ -1,28 +1,28 @@
 window.onload = function() {
-    let login = document.getElementsByClassName('nav-right-a')[0];
+    var login = document.getElementsByClassName('nav-right-a')[0];
 
-    let unLogin_0 = document.createElement('a');
+    var unLogin_0 = document.createElement('a');
     unLogin_0.className = 'unLogin nav-right-a-first';
     unLogin_0.innerText = 'Login';
     unLogin_0.href = '../html/login.html';
     login.appendChild(unLogin_0);
 
-    let unLogin_1 = document.createElement('a');
+    var unLogin_1 = document.createElement('a');
     unLogin_1.className = 'unLogin';
     unLogin_1.innerText = 'Register';
     unLogin_1.href = '../html/register.html';
     login.appendChild(unLogin_1);
 }
 
-let login = document.getElementsByClassName('login-btn')[0];
+var login = document.getElementsByClassName('login-btn')[0];
 
-login.addEventListener('click', () => {
-    let usr = document.getElementsByClassName('usr')[0].value;
-    let pwd = document.getElementsByClassName('pwd')[0].value;
-    let message = document.getElementsByClassName('login-msg')[0];
+login.onclick = function() {
+    var usr = document.getElementsByClassName('usr')[0].value;
+    var pwd = document.getElementsByClassName('pwd')[0].value;
+    var message = document.getElementsByClassName('login-msg')[0];
     //数据检测
-    let flag = [true, true];
-    let reg = new RegExp("^[a-z0-9]+$");
+    var flag = [true, true];
+    var reg = new RegExp("^[a-z0-9]+$");
 
     for (var i=1; i<=2; i++) {
         if (i == 1) {
@@ -74,5 +74,5 @@ login.addEventListener('click', () => {
     } else {
         message.style.display = 'block';
     }
-})
+}
 

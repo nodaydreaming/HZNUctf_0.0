@@ -7,6 +7,7 @@ import java.util.List;
 public interface UserDao {
     List<User> queryUser();
     User queryUserByUsername(String competitoruUsername);
+    User queryUserByTelorNumber(String tel,String number);
     int insertUser(User user);
     int updateUser(User user);
     int deleteUser(String competitorUsername);

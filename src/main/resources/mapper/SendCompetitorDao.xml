@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ctfplatform.demo.dao.SendCompetitorDao">
+    <select id="queryall" resultType="com.ctfplatform.demo.entity.send.SendCompetitor">
+        SELECT *
+        FROM sendcompetitor
+        ORDER BY
+        id;
+    </select>
+    <select id="queryByAccount" resultType="com.ctfplatform.demo.entity.send.SendCompetitor">
+        SELECT *
+        FROM sendcompetitor
+        WHERE
+        account=#{account}
+    </select>
+    <insert id="insert" parameterType="com.ctfplatform.demo.entity.send.SendCompetitor">
+        INSERT INTO
+        sendcompetitor(id,account,password,banned,competitionId,teamAccount)
+        VALUES
+        (#{id},#{account},#{password},#{banned},#{competitionId},#{teamAccount})
+    </insert>
+</mapper>

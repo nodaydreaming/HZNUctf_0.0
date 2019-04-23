@@ -41,6 +41,7 @@ E:\IdeaProjects\HZNUctf\src\main\java\com\ctfplatform\demo\entity\send\SendCompe
 E:\IdeaProjects\HZNUctf\src\main\java\com\ctfplatform\demo\service\RecordService.java
 E:\IdeaProjects\HZNUctf\src\main\java\com\ctfplatform\demo\web\RecordController.java
 E:\IdeaProjects\HZNUctf\src\main\java\com\ctfplatform\demo\service\impl\UserServiceImpl.java
+E:\IdeaProjects\HZNUctf\src\main\java\com\ctfplatform\demo\dao\SendCompetitorDao.java
 E:\IdeaProjects\HZNUctf\src\main\java\com\ctfplatform\demo\service\impl\AdminServiceImpl.java
 E:\IdeaProjects\HZNUctf\src\main\java\com\ctfplatform\demo\config\service\RSA.java
 E:\IdeaProjects\HZNUctf\src\main\java\com\ctfplatform\demo\web\CompetitionController.java

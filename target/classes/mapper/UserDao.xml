@@ -14,6 +14,12 @@
         WHERE
         competitor_username=#{competitorUsername}
     </select>
+    <select id="queryUserByTelorNumber" resultType="com.ctfplatform.demo.entity.User">
+        SELECT *
+        FROM tb_user
+        WHERE
+        competitor_tel=#{tel} or competitor_studentnumber=#{number}
+    </select>
     <select id="queryUserById" resultType="com.ctfplatform.demo.entity.User">
         SELECT *
         FROM tb_user

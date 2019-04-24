@@ -43,21 +43,26 @@ public class TeamController {
         HttpSession session = request.getSession();
         User user = (User)session.getAttribute("user");
         Competition competition =  competitionService.queryCompetitionByNumber(number);
-        if(competition != null) {
-            int canregister = competition.getCompetitionCanregister();
-            if(canregister == 1) {
-                int competitionId = competition.getCompetitionId();
-                team.setTeamCompetitionId(competitionId);
-                String username = user.getCompetitorUsername();
-                modelMap.put("message", teamService.insertTeam(team, username).get("message"));
-            }else if(canregister == 2){
-                modelMap.put("message","报名已经结束");
+        //队伍名称长度判断
+        if(team.getTeamName().length() > 10 || team.getTeamName().length() < 2){
+            modelMap.put("message", "队伍名长度不合法，2-10个字符！");
+        }
+        else {
+            if (competition != null) {
+                int canregister = competition.getCompetitionCanregister();
+                if (canregister == 1) {
+                    int competitionId = competition.getCompetitionId();
+                    team.setTeamCompetitionId(competitionId);
+                    String username = user.getCompetitorUsername();
+                    modelMap.put("message", teamService.insertTeam(team, username).get("message"));
+                } else if (canregister == 2) {
+                    modelMap.put("message", "报名已经结束");
+                } else {
+                    modelMap.put("message", "报名暂未开启");
+                }
+            } else {
+                modelMap.put("message", "根据number未找到该比赛");
             }
-            else{
-                modelMap.put("message","报名暂未开启");
-            }
-        }else{
-            modelMap.put("message","根据number未找到该比赛");
         }
         return modelMap;
     }

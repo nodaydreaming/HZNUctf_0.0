@@ -117,7 +117,7 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public Map<String,Object> deleteAdmin(String username,String adminUsername) {
-        Map<String,Object> modelMap = new HashMap<String,Object>();
+        Map<String,Object> modelMap = new HashMap<String, Object>();
         if(isSuper(adminUsername)){
             int effectedNum = adminDao.deleteAdmin(username);
             if(effectedNum > 0){
@@ -134,20 +134,25 @@ public class AdminServiceImpl implements AdminService {
     public Map<String,Object> adminlogin(String adminUsername, String adminPassword) {
         Map<String,Object> modelMap = new HashMap<String,Object>();
         if(adminUsername != null && adminPassword != null){
-            Admin admin = adminDao.queryAdminByUsername(adminUsername);
-            if(admin != null || admin.getAdminState() != 1) {
-                String pwd = admin.getAdminPassword();   //获得数据库中的密码
-                RSA rsa = new RSA();
-                String enpwd = null;
-                try {
-                    enpwd = rsa.testEncrypt(rsa.privateKey, adminPassword);  //将输入的密码加密
-                } catch (InvalidKeyException | NoSuchAlgorithmException | InvalidKeySpecException | NoSuchPaddingException
-                        | IllegalBlockSizeException | BadPaddingException | IOException e) {
-                    modelMap.put("message","加密失败");
-                }
-                if (pwd.equals(enpwd)) {
-                } else {
-                    modelMap.put("message","账号密码不正确");
+            Admin admin = null;
+            admin = adminDao.queryAdminByUsername(adminUsername);
+            if(admin != null) {
+                if(admin.getAdminState() != 1) {
+                    String pwd = admin.getAdminPassword();   //获得数据库中的密码
+                    RSA rsa = new RSA();
+                    String enpwd = null;
+                    try {
+                        enpwd = rsa.testEncrypt(rsa.privateKey, adminPassword);  //将输入的密码加密
+                    } catch (InvalidKeyException | NoSuchAlgorithmException | InvalidKeySpecException | NoSuchPaddingException
+                            | IllegalBlockSizeException | BadPaddingException | IOException e) {
+                        modelMap.put("message", "加密失败");
+                    }
+                    if (pwd.equals(enpwd)) {
+                    } else {
+                        modelMap.put("message", "账号密码不正确");
+                    }
+                }else{
+                    modelMap.put("message","比赛管理员不得登录后台");
                 }
             }else{
                 modelMap.put("message","账号密码不正确");

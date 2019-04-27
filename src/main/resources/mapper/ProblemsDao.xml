@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ctfplatform.demo.dao.ProblemsDao">
+    <select id="queryByCompetitionId" resultType="com.ctfplatform.demo.entity.send.Problems">
+        SELECT *
+        FROM sendproblem
+        WHERE
+        competitionId=#{competitionId}
+    </select>
+    <insert id="insert" parameterType="com.ctfplatform.demo.entity.send.Problems"
+    useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+        INSERT INTO
+        sendproblem(problemId,problemOrder,competitionId)
+        VALUES
+        (#{problemId},#{problemOrder},#{competitionId})
+    </insert>
+</mapper>

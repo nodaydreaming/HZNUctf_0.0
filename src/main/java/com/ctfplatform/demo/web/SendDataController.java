@@ -1,5 +1,6 @@
 package com.ctfplatform.demo.web;
 
+import com.ctfplatform.demo.dao.ProblemsDao;
 import com.ctfplatform.demo.entity.*;
 import com.ctfplatform.demo.entity.send.*;
 import com.ctfplatform.demo.service.*;
@@ -52,6 +53,8 @@ public class SendDataController {
     private UserService userService;
     @Autowired
     private CompetitionAdminService competitionAdminService;
+    @Autowired
+    private ProblemsDao problemsDao;
 //
 //    private static final String IP_ADDR = "172.22.227.99";
 //    private static final int PORT = 13301;
@@ -209,9 +212,20 @@ public class SendDataController {
     }
     //获得题目信息
     public List<SendProblem> getProblems(int competitonId, HttpServletRequest request){
+        //获得已经发送过的题目数组
+        List<Problems> sendedProblems = problemsDao.queryByCompetitionId(competitonId);
+        //获得该比赛题目列表的最大题目序号
+        int order = 0;
+        if(sendedProblems != null){
+            for(Problems p : sendedProblems){
+                if(p.getProblemOrder() > order){
+                    order = p.getProblemOrder();
+                }
+            }
+        }
+        //获得要发送的题目信息
         List<SendProblem> list = new LinkedList<>();
         String competitionNumber = "";
-
         List<CompetitionQuestion> competitionQuestions = competitionQuestionService.queryCompetitionquestion();
         List<Question> questions = questionService.queryQuestion();
         //题目类型
@@ -260,7 +274,27 @@ public class SendDataController {
                 }
             }
         }
-        return list;
+        List<SendProblem> resultList = new LinkedList<>();
+        for(int i = 0; i < list.size(); ++i){
+            for(int j = 0; j < sendedProblems.size(); ++j){
+                Problems sended = sendedProblems.get(j);
+                if(sended.getProblemId() == list.get(i).getId()){
+                    break;
+                }
+                else{
+                    SendProblem sp = list.get(i);
+                    sp.setProblemId(++order);
+                    resultList.add(sp);
+                    Problems p = new Problems();
+                    p.setCompetitionId(competitonId);
+                    p.setProblemId(sp.getId());
+                    p.setProblemOrder(sp.getProblemId());
+                    problemsDao.insert(p);
+                }
+            }
+
+        }
+        return resultList;
     }
     //获得管理员信息
     public List<SendAdmin> getAdmins(int competitonId){

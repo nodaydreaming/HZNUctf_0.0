@@ -52,9 +52,9 @@ public class SendDataController {
     private UserService userService;
     @Autowired
     private CompetitionAdminService competitionAdminService;
-
-    private static final String IP_ADDR = "172.22.227.99";
-    private static final int PORT = 13301;
+//
+//    private static final String IP_ADDR = "172.22.227.99";
+//    private static final int PORT = 13301;
 
     //获得比赛信息
     public List<SendCompetition> getCompetitons(int competitonId){
@@ -412,10 +412,15 @@ public class SendDataController {
                     Team team = null;
                     //得到用户所在的队伍
                     for (Team t : teams) {
-                        if (t.getTeamCompetitionId() == competition.getCompetitionId()) {
+                        if (t.getTeamCompetitionId() == competition.getCompetitionId().intValue()) {
                             for (TeamCompetitor tc : teamCompetitors) {
-                                if (tc.getCompetitorId() == loginUser.getCompetitorId()
-                                        && tc.getTeamId() == t.getTeamId()) {
+                                System.out.print("tc.getCompetitorId():"+tc.getCompetitorId()+"\t");
+                                System.out.println("loginUser.getCompetitorId()"+loginUser.getCompetitorId());
+                                System.out.print("tc.getTeamId()"+tc.getTeamId()+"\t");
+                                System.out.println("t.getTeamId()"+t.getTeamId());
+                                if (tc.getCompetitorId() == loginUser.getCompetitorId().intValue()
+                                        && tc.getTeamId() == t.getTeamId().intValue()) {
+                                    System.out.println(t);
                                     team = t;
                                     break;
                                 }
@@ -424,9 +429,9 @@ public class SendDataController {
                     }
                     if (team != null) {
                         for (TeamCompetitor tc : teamCompetitors) {
-                            if (tc.getTeamId() == team.getTeamId()) {
+                            if (tc.getTeamId() == team.getTeamId().intValue()) {
                                 for (User u : users) {
-                                    if (u.getCompetitorId() == tc.getCompetitorId()) {
+                                    if (u.getCompetitorId() == tc.getCompetitorId().intValue()) {
                                         memberNames.add(u.getCompetitorName());
                                         if (tc.getCompetitorLevel() == 1) {
                                             captainName = u.getCompetitorName();
@@ -475,7 +480,13 @@ public class SendDataController {
 //            return null;
             e.printStackTrace();
         }
-
+//        Integer a = new Integer(5);
+//        Integer b = new Integer(5);
+//        System.out.println(a == b);
+//        System.out.println(a.equals(b));
 
     }
+
+
+
 }

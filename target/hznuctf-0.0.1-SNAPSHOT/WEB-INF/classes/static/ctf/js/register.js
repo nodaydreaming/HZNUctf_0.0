@@ -1,44 +1,44 @@
 window.onload = function() {
-    let login = document.getElementsByClassName('nav-right-a')[0];
+    var login = document.getElementsByClassName('nav-right-a')[0];
 
-    let unLogin_0 = document.createElement('a');
+    var unLogin_0 = document.createElement('a');
     unLogin_0.className = 'unLogin nav-right-a-first';
     unLogin_0.innerText = 'Login';
     unLogin_0.href = '../html/login.html';
     login.appendChild(unLogin_0);
 
-    let unLogin_1 = document.createElement('a');
+    var unLogin_1 = document.createElement('a');
     unLogin_1.className = 'unLogin';
     unLogin_1.innerText = 'Register';
     unLogin_1.href = 'javascript:void(0)';
     login.appendChild(unLogin_1);
 }
 
-let register = document.getElementsByClassName('register-btn')[0];
-register.addEventListener('click', () => {
-    let usr = document.getElementsByClassName('userName')[0].value;
-    let pwd = document.getElementsByClassName('passWord')[0].value;
-    let gender = document.getElementsByName('gender');
-    let genvalue = '';
-    let nike = document.getElementsByClassName('nikeName')[0].value;
-    let pho = document.getElementsByClassName('phoneNumber')[0].value;
-    let stu = document.getElementsByClassName('studentNumber')[0].value;
-    let index = document.getElementsByClassName('register-select')[0];
-    let aca = '';
+var register = document.getElementsByClassName('register-btn')[0];
+register.onclick = function() {
+    var usr = document.getElementsByClassName('userName')[0].value;
+    var pwd = document.getElementsByClassName('passWord')[0].value;
+    var gender = document.getElementsByName('gender');
+    var genvalue = '';
+    var nike = document.getElementsByClassName('nikeName')[0].value;
+    var pho = document.getElementsByClassName('phoneNumber')[0].value;
+    var stu = document.getElementsByClassName('studentNumber')[0].value;
+    var index = document.getElementsByClassName('register-select')[0];
+    var aca = '';
     for(i=1; i<index.length; i++) {
         if (index[i].selected == true) {
             aca = index[i].text;
             break;
         }
     }
-    let clas = document.getElementsByClassName('className')[0].value;
-    let real = document.getElementsByClassName('realName')[0].value;
-    let message = document.getElementsByClassName('register-msg')[0];
+    var clas = document.getElementsByClassName('className')[0].value;
+    var real = document.getElementsByClassName('realName')[0].value;
+    var message = document.getElementsByClassName('register-msg')[0];
 
     //数据检测
-    let flag = [true, true, true, true, true, true, true, true, true];
-    let reg = new RegExp("^[a-z0-9]+$");
-    let regNumber = new RegExp("^[0-9]+$");
+    var flag = [true, true, true, true, true, true, true, true, true];
+    var reg = new RegExp("^[a-z0-9]+$");
+    var regNumber = new RegExp("^[0-9]+$");
 
     for (var i=1; i<=9; i++) {
         if (i == 1) {
@@ -167,4 +167,4 @@ register.addEventListener('click', () => {
     } else {
         message.style.display = 'block';
     }
-})
+}

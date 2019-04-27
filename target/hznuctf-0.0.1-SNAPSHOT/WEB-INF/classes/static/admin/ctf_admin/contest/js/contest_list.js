@@ -569,6 +569,7 @@ function get_registration(){
     var num = tr.childNodes[0].innerText;
     var competition = contest_list[num-1];
     var id = competition.competitionId;
+    var number = competition.competitionNumber;
     layer.open({
         type: 1,
         offset: 'auto',
@@ -577,69 +578,69 @@ function get_registration(){
         area: ['1200px', '650px'],
         content: '<table class="layui-hide" id="test" lay-filter="test"></table>\n' +
             '<script type="text/html" id="barDemo">\n          ' +
-            '<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>\n        ' +
+                '<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>\n        ' +
             '</script>\n         \n        ' +
             '<script>\n        ' +
-            'layui.use(\'table\', function(){\n          ' +
-            'var table = layui.table;\n          \n          ' +
-            'table.render({\n            ' +
-            'elem: \'#test\'\n            ' +
-            ',url:\'../../../send/getRegistration?competitionId='+id+'\'\n            ' +
-            ',toolbar: \'#toolbarDemo\'\n            ' +
-            ',title: \'已报名列表\'\n            ' +
-            ',cols: [[\n              ' +
-            ',{field: \'id\', title: \'ID\', style:"width:70px" , minWidth:70, width:70, sort: true, fixed: \'left\', unresize: true}\n              ' +
-            ',{field:\'username\', style:"padding-left:15px", title:\'用户名\', width:100,sort: true}\n              ' +
-            ',{field:\'name\', title:\'姓名\', width:100,sort: true}\n              ' +
-            ',{field:\'gender\', title:\'性别\', width:70,sort: true}\n              ' +
-            ',{field:\'college\', title:\'学院\', width:190,sort: true}\n              ' +
-            ',{field:\'professional\', title:\'班级\', width:110,sort: true}\n              ' +
-            ',{field:\'number\', title:\'学号\', width:150,sort: true}\n              ' +
-            ',{field:\'date\', title:\'报名时间\', width:190,sort: true}\n              ' +
-            ',{field:\'teamName\', title:\'队伍名\', width:130,sort: true}\n              ' +
-            ',{title:\'操作\', toolbar: \'#barDemo\', width:80}\n            ' +
-            ']]\n            ' +
-            ',page: true\n          ' +
-            '});\n          \n          ' +
-            '//头工具栏事件\n          ' +
-            'table.on(\'toolbar(test)\', function(obj){\n            ' +
-            'var checkStatus = table.checkStatus(obj.config.id);\n            ' +
-            'switch(obj.event){\n              ' +
-            'case \'getCheckData\':\n                ' +
-            'var data = checkStatus.data;\n                ' +
-            'layer.alert(JSON.stringify(data));\n              ' +
-            'break;\n              ' +
-            'case \'getCheckLength\':\n                ' +
-            'var data = checkStatus.data;\n                ' +
-            'layer.msg(\'选中了：\'+ data.length + \' 个\');\n              ' +
-            'break;\n              ' +
-            'case \'isAll\':\n                ' +
-            'layer.msg(checkStatus.isAll ? \'全选\': \'未全选\');\n              ' +
-            'break;\n            ' +
-            '};\n          ' +
-            '});\n          \n          ' +
-            '//监听行工具事件\n          ' +
-            'table.on(\'tool(test)\', function(obj){\n            ' +
-            'var data = obj.data;\n            ' +
-            '//console.log(obj)\n            ' +
-            'if(obj.event === \'del\'){\n              ' +
-            'layer.confirm(\'真的删除此条数据吗\', function(index){\n                ' +
-            'obj.del();\n                ' +
-            'layer.close(index);\n              ' +
-            '});\n            ' +
-            '} else if(obj.event === \'edit\'){\n              ' +
-            'layer.prompt({\n                ' +
-            'formType: 2\n                ' +
-            ',value: data.email\n              ' +
-            '}, function(value, index){\n                ' +
-            'obj.update({\n                  ' +
-            'email: value\n                ' +
-            '});\n' +
-            'layer.close(index);\n' +
-            '});\n ' +
-            '}\n          ' +
-            '});\n        ' +
-            '});\n        ' +
+                'layui.use(\'table\', function(){\n          ' +
+                    'var table = layui.table;\n          \n          ' +
+                    'table.render({\n            ' +
+                        'elem: \'#test\'\n            ' +
+                        ',url:\'../../../send/getRegistration?competitionId='+id+'\'\n            ' +
+                        ',toolbar: \'#toolbarDemo\'\n            ' +
+                        ',title: \'已报名列表\'\n            ' +
+                        ',cols: [[\n              ' +
+                        ',{field: \'id\', title: \'ID\', style:"width:70px" , minWidth:70, width:70, sort: true, fixed: \'left\', unresize: true}\n              ' +
+                        ',{field:\'username\', style:"padding-left:15px", title:\'用户名\', width:100,sort: true}\n              ' +
+                        ',{field:\'name\', title:\'姓名\', width:100,sort: true}\n              ' +
+                        ',{field:\'gender\', title:\'性别\', width:70,sort: true}\n              ' +
+                        ',{field:\'college\', title:\'学院\', width:190,sort: true}\n              ' +
+                        ',{field:\'professional\', title:\'班级\', width:110,sort: true}\n              ' +
+                        ',{field:\'number\', title:\'学号\', width:150,sort: true}\n              ' +
+                        ',{field:\'date\', title:\'报名时间\', width:190,sort: true}\n              ' +
+                        ',{field:\'teamName\', title:\'队伍名\', width:130,sort: true}\n              ' +
+                        ',{title:\'操作\', toolbar: \'#barDemo\', width:80}\n            ' +
+                        ']]\n            ' +
+                        ',page: true\n          ' +
+                    '});\n          \n          ' +
+                    'table.on(\'toolbar(test)\', function(obj){\n            ' +
+                    'var checkStatus = table.checkStatus(obj.config.id);\n            ' +
+                    'switch(obj.event){\n              ' +
+                    'case \'getCheckData\':\n                ' +
+                    'var data = checkStatus.data;\n                ' +
+                    'layer.alert(JSON.stringify(data));\n              ' +
+                    'break;\n              ' +
+                    'case \'getCheckLength\':\n                ' +
+                    'var data = checkStatus.data;\n                ' +
+                    'layer.msg(\'选中了：\'+ data.length + \' 个\');\n              ' +
+                    'break;\n              ' +
+                    'case \'isAll\':\n                ' +
+                    'layer.msg(checkStatus.isAll ? \'全选\': \'未全选\');\n              ' +
+                    'break;\n            ' +
+                    '};\n          ' +
+                    '});\n          \n          ' +
+                    '//监听行工具事件\n          ' +
+                    'table.on(\'tool(test)\', function(obj){\n            ' +
+                        'var data = obj.data;\n            ' +
+                        '//console.log(obj)\n            ' +
+                        'if(obj.event === \'del\'){\n              ' +
+                        'layer.confirm(\'真的删除此条数据吗\', function(index){\n                ' +
+                            'cancelRegistration("'+number+'", obj.data.username);' +
+                            'obj.del();\n                ' +
+                            'layer.close(index);\n              ' +
+                        '});\n            ' +
+                        '} else if(obj.event === \'edit\'){\n              ' +
+                            'layer.prompt({\n                ' +
+                            'formType: 2\n                ' +
+                            ',value: data.email\n              ' +
+                        '}, function(value, index){\n                ' +
+                        'obj.update({\n                  ' +
+                            'email: value\n                ' +
+                        '});\n' +
+                        'layer.close(index);\n' +
+                        '});\n ' +
+                    '}\n          ' +
+                    '});\n        ' +
+                '});\n        ' +
             '</script>',
         btn: ['关闭'],
         btnAlign: 'c',
@@ -647,6 +648,38 @@ function get_registration(){
         title: "已报名选手列表",
         btn1 : function () {
             layer.closeAll();
+        }
+    });
+}
+//取消用户报名
+function cancelRegistration(competitionNumber, username) {
+    $.ajax({
+        url : '../../../CompetitionUser/adminCancelRegistration',
+        type : 'post',
+        data : {"number": competitionNumber, "username":username},
+        scriptCharset : 'utf-8',
+        success : function (result) {
+            if(result.message == null){
+                layer.open({
+                    type: 1,
+                    offset: 'auto',
+                    id: 'layerDemo2', //防止重复弹出
+                    content: '<div style="padding: 20px 100px;">' + "取消报名成功！" + '</div>',
+                    btn: '关闭',
+                    btnAlign: 'c', //按钮居中
+                    shade: 0.5, //不显示遮罩
+                    title: "HZNUCTF",
+                    yes: function (index) {
+                        layer.close(index);
+                    }
+                });
+            }
+            else{
+                layer.msg(result.message);
+            }
+        },
+        error : function () {
+            console.log('请求失败！');
         }
     });
 }

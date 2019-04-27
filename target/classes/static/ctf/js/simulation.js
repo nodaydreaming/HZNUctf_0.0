@@ -146,12 +146,14 @@ function getUserStatus(competition) {
         }
     });
 }
+
 function goCompetition() {
     window.location.href = "../../../ctf";
 }
+
 function cancelRegistration() {
     $.ajax({
-        url : '../../CompetitionUser/devareCompetitionUser',
+        url : '../../CompetitionUser/deleteCompetitionUser',
         type : 'post',
         data : {"number": competitionNumber},
         scriptCharset : 'utf-8',
@@ -251,7 +253,7 @@ function createTeam() {
                 '    <div class="layui-form-item">\n' +
                 '        <label class="layui-form-label">队伍名称</label>\n' +
                 '        <div class="layui-input-block">\n' +
-                '            <input type="text" id="team_name" autocompvare="off" placeholder="请输入要创建的队伍名称" required class="layui-input" style="width: 80%;" onchange="inputLimit()" onkeydown="inputLimit()" onkeyup="inputLimit()">\n' +
+                '            <input type="text" id="team_name" autocompvare="off" placeholder="请输入要创建的队伍名称，2-10个字符" required class="layui-input" style="width: 80%;" onchange="inputLimit()" onkeydown="inputLimit()" onkeyup="inputLimit()">\n' +
                 '        </div>\n' +
                 '    </div>\n' +
                 '</form>\n' +

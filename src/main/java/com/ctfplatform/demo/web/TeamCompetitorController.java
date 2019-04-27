@@ -3,10 +3,7 @@ package com.ctfplatform.demo.web;
 
 import com.ctfplatform.demo.dao.CompetitionUserDao;
 import com.ctfplatform.demo.dao.TeamDao;
-import com.ctfplatform.demo.entity.Competition;
-import com.ctfplatform.demo.entity.Team;
-import com.ctfplatform.demo.entity.TeamCompetitor;
-import com.ctfplatform.demo.entity.User;
+import com.ctfplatform.demo.entity.*;
 import com.ctfplatform.demo.service.CompetitionService;
 import com.ctfplatform.demo.service.TeamCompetitorService;
 import com.ctfplatform.demo.service.TeamService;
@@ -52,7 +49,7 @@ public class TeamCompetitorController {
         return modelMap;
     }
     @RequestMapping(value = "insertTeamCompetitor",method = RequestMethod.POST) //加入队伍接口
-    private Map<String,Object> insertCompetitor(String teamName,String number, HttpServletRequest request){
+    private Map<String,Object> insertCompetitor(String teamName, String number, HttpServletRequest request){
         Map<String,Object> modelMap = new HashMap<String,Object>();
         HttpSession session = request.getSession();
         User user = (User)session.getAttribute("user");

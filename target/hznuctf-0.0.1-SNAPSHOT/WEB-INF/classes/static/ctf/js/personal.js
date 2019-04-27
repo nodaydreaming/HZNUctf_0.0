@@ -1,19 +1,19 @@
 window.onload = function () {
-    let login = document.getElementsByClassName('nav-right-a')[0];
-    let change = document.getElementsByClassName('login-btn')[0];
+    var login = document.getElementsByClassName('nav-right-a')[0];
+    var change = document.getElementsByClassName('login-btn')[0];
 
-    let usr = document.getElementsByClassName('userName')[0];
-    let pwd = document.getElementsByClassName('passWord')[0];
-    let npwd = document.getElementsByClassName('newPassWord')[0];
-    let apwd = document.getElementsByClassName('againPassWord')[0];
-    let nike = document.getElementsByClassName('nikeName')[0];
-    let realName = document.getElementsByClassName('realName')[0];
-    let pho = document.getElementsByClassName('phoneNumber')[0];
-    let stu = document.getElementsByClassName('studentNumber')[0];
-    let aca = document.getElementsByClassName('academy')[0];
-    let clas = document.getElementsByClassName('className')[0];
-    let email = document.getElementsByClassName('email')[0];
-    let message = document.getElementsByClassName('login-msg')[0];
+    var usr = document.getElementsByClassName('userName')[0];
+    var pwd = document.getElementsByClassName('passWord')[0];
+    var npwd = document.getElementsByClassName('newPassWord')[0];
+    var apwd = document.getElementsByClassName('againPassWord')[0];
+    var nike = document.getElementsByClassName('nikeName')[0];
+    var realName = document.getElementsByClassName('realName')[0];
+    var pho = document.getElementsByClassName('phoneNumber')[0];
+    var stu = document.getElementsByClassName('studentNumber')[0];
+    var aca = document.getElementsByClassName('academy')[0];
+    var clas = document.getElementsByClassName('className')[0];
+    var email = document.getElementsByClassName('email')[0];
+    var message = document.getElementsByClassName('login-msg')[0];
 
     $.ajax({
         url: '../../user/getUserMap',
@@ -30,39 +30,39 @@ window.onload = function () {
     });
 
     function rightTop(result) {
-        let login = document.getElementsByClassName('nav-right-a')[0];
+        var login = document.getElementsByClassName('nav-right-a')[0];
         if (result.loginUser == null) {
-            let unLogin_0 = document.createElement('a');
+            var unLogin_0 = document.createElement('a');
             unLogin_0.className = 'unLogin nav-right-a-first';
             unLogin_0.innerText = 'Login';
             unLogin_0.href = 'login.html';
             login.appendChild(unLogin_0);
 
-            let unLogin_1 = document.createElement('a');
+            var unLogin_1 = document.createElement('a');
             unLogin_1.className = 'unLogin';
             unLogin_1.innerText = 'Register';
             unLogin_1.href = 'register.html';
             login.appendChild(unLogin_1);
         } else {
-            let login = document.getElementsByClassName('nav-right-a')[0];
+            var login = document.getElementsByClassName('nav-right-a')[0];
 
-            let isLogin_1 = document.createElement('a');
+            var isLogin_1 = document.createElement('a');
             isLogin_1.className = 'nav-info isLogin';
             isLogin_1.href = 'javascript:void(0)';
             login.appendChild(isLogin_1);
-            let isLogin_1img = document.createElement('img');
+            var isLogin_1img = document.createElement('img');
             isLogin_1img.src = '../img/loginout.png';
             isLogin_1.title = "退出登录";
             isLogin_1.appendChild(isLogin_1img);
 
-            let isLogin_0 = document.createElement('a');
+            var isLogin_0 = document.createElement('a');
             isLogin_0.className = 'isLogin';
             isLogin_0.innerText = result.loginUser.competitorNickname;
             isLogin_0.href = 'personal.html';
             isLogin_0.title = "个人信息";
             login.appendChild(isLogin_0);
 
-            isLogin_1.addEventListener('click', () => {
+            isLogin_1.onclick = function() {
                 $.ajax({
                     url: '../../user/quxiao',
                     type: 'post',
@@ -79,7 +79,7 @@ window.onload = function () {
                         console.log("请求失败！");
                     }
                 });
-            })
+            }
         }
     }
 
@@ -112,21 +112,21 @@ window.onload = function () {
         }
     });
 
-    change.addEventListener('click', () => {
-        // let usr = document.getElementsByClassName('userName')[0].value;
-        let pwd = document.getElementsByClassName('passWord')[0].value;
-        let npwd = document.getElementsByClassName('newPassWord')[0].value;
-        let apwd = document.getElementsByClassName('againPassWord')[0].value;
-        // let nike = document.getElementsByClassName('nikeName')[0].value;
-        // let realName = document.getElementsByClassName('realName')[0].value;
-        // let pho = document.getElementsByClassName('phoneNumber')[0].value;
-        // let stu = document.getElementsByClassName('studentNumber')[0].value;
-        // let aca = document.getElementsByClassName('academy')[0].value;
-        // let clas = document.getElementsByClassName('className')[0].value;
-        let email = document.getElementsByClassName('email')[0].value;
+    change.onclick = function() {
+        // var usr = document.getElementsByClassName('userName')[0].value;
+        var pwd = document.getElementsByClassName('passWord')[0].value;
+        var npwd = document.getElementsByClassName('newPassWord')[0].value;
+        var apwd = document.getElementsByClassName('againPassWord')[0].value;
+        // var nike = document.getElementsByClassName('nikeName')[0].value;
+        // var realName = document.getElementsByClassName('realName')[0].value;
+        // var pho = document.getElementsByClassName('phoneNumber')[0].value;
+        // var stu = document.getElementsByClassName('studentNumber')[0].value;
+        // var aca = document.getElementsByClassName('academy')[0].value;
+        // var clas = document.getElementsByClassName('className')[0].value;
+        var email = document.getElementsByClassName('email')[0].value;
 
-        let flag = [null, true, true, true];
-        let reg = new RegExp("^[a-z0-9]+$");
+        var flag = [null, true, true, true];
+        var reg = new RegExp("^[a-z0-9]+$");
 
         for (var i = 1; i <= flag.length-1; i++) {
             if (i == 1) {
@@ -170,14 +170,14 @@ window.onload = function () {
         if (flag[1] && flag[2] && flag[3] && flag[3]) {
             message.style.display = 'none';
             //检测通过，数据发送
-            // let usr = document.getElementsByClassName('userName')[0].value;
-            let pwd = document.getElementsByClassName('passWord')[0].value;
-            let nike = document.getElementsByClassName('nikeName')[0].value;
-            // let pho = document.getElementsByClassName('phoneNumber')[0].value;
-            // let stu = document.getElementsByClassName('studentNumber')[0].value;
-            // let aca = document.getElementsByClassName('academy')[0].value;
-            // let clas = document.getElementsByClassName('className')[0].value;
-            let email = document.getElementsByClassName('email')[0].value;
+            // var usr = document.getElementsByClassName('userName')[0].value;
+            var pwd = document.getElementsByClassName('passWord')[0].value;
+            var nike = document.getElementsByClassName('nikeName')[0].value;
+            // var pho = document.getElementsByClassName('phoneNumber')[0].value;
+            // var stu = document.getElementsByClassName('studentNumber')[0].value;
+            // var aca = document.getElementsByClassName('academy')[0].value;
+            // var clas = document.getElementsByClassName('className')[0].value;
+            var email = document.getElementsByClassName('email')[0].value;
             $.ajax({
                 url: '../../user/updateuser',
                 data: {
@@ -231,5 +231,5 @@ window.onload = function () {
         } else {
             message.style.display = 'block';
         }
-    })
+    }
 }

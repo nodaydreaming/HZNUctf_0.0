@@ -49,7 +49,7 @@ window.onload = function () {
 
             isLogin_1.onclick = function() {
                 $.ajax({
-                    url: '../../user/quxiao',
+                    url: '../user/quxiao',
                     type: 'post',
                     scriptCharset: 'utf-8',
                     success: function (result) {

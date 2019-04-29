@@ -41,6 +41,7 @@ com\ctfplatform\demo\service\impl\TeamServiceImpl.class
 com\ctfplatform\demo\dao\CompetitionDao.class
 com\ctfplatform\demo\dao\QuestionDao.class
 com\ctfplatform\demo\config\service\TransactionManagementConfiguration.class
+com\ctfplatform\demo\dao\ProblemsDao.class
 com\ctfplatform\demo\service\InformationService.class
 com\ctfplatform\demo\Filter\AdminSessionFilter.class
 com\ctfplatform\demo\dao\CompetitionUserDao.class
@@ -65,6 +66,7 @@ com\ctfplatform\demo\service\TeamService.class
 com\ctfplatform\demo\entity\Admin.class
 com\ctfplatform\demo\dao\CompetitionQuestionDao.class
 com\ctfplatform\demo\entity\SendData.class
+com\ctfplatform\demo\entity\send\Problems.class
 com\ctfplatform\demo\service\impl\AdminServiceImpl.class
 com\ctfplatform\demo\service\impl\CompetitionQuestionImpl.class
 com\ctfplatform\demo\dao\InformationDao.class

@@ -132,6 +132,7 @@
                 <table class="layui-hide" id="users" lay-filter="user"></table>
 
                 <script type="text/html" id="barDemo">
+                    <a class="layui-btn layui-btn-xs" lay-event="resetpwd">重置密码</a>
                     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
                 </script>
 
@@ -149,14 +150,14 @@
                                 ,{field:'competitorId', title:'ID', width:70, fixed: 'left', unresize: true, sort: true}
                                 ,{field:'competitorUsername', title:'用户名', width:120, sort: true}
                                 ,{field:'competitorNickname', title:'昵称', width:100, sort: true}
-                                ,{field:'competitorTel', title:'手机号', width:130, sort: true}
+                                ,{field:'competitorTel', title:'手机号', width:150, sort: true}
                                 ,{field:'competitorEmail', title:'邮箱', width:130, sort: true}
                                 ,{field:'competitorName', title:'姓名', width:90, sort: true}
                                 ,{field:'competitorGender', title:'性别', width:70, sort: true}
                                 ,{field:'competitorAcademy', title:'学院', width:130, sort: true}
-                                ,{field:'competitorClass', title:'班级', width:100, sort: true}
-                                ,{field:'competitorStudentnumber', title:'学号', width:110, sort: true}
-                                ,{title:'操作', toolbar: '#barDemo', width:90}
+                                ,{field:'competitorClass', title:'班级', width:150, sort: true}
+                                ,{field:'competitorStudentnumber', title:'学号', width:150, sort: true}
+                                ,{title:'操作', toolbar: '#barDemo', width:250}
                             ]]
                             ,page: true
                         });
@@ -171,6 +172,9 @@
                                     obj.del();
                                     layer.close(index);
                                 });
+                            }
+                            if(obj.event === 'resetpwd'){
+                                adminResetUserPwd(obj.data.competitorUsername);
                             }
                         });
                     });
@@ -193,6 +197,75 @@
                                 layer.msg('请求失败！');
                             }
                         });
+                    }
+                    //管理员重置用户密码
+                    function adminResetUserPwd() {
+                        var username = arguments[0];
+                        layer.open({
+                            type: 1,
+                            offset: 'auto',
+                            skin:'layui-layer-lan',
+                            id: 'layerDemo1',
+                            area: ['450px', '250px'],
+                            content:
+                                '<form class="layui-form" action="" style="margin:30px 0 0 5%; font-size:15px">\n' +
+                                '    <div class="layui-form-item">\n' +
+                                '        <label class="layui-form-label">新密码</label>\n' +
+                                '        <div class="layui-input-block">\n' +
+                                '            <input type="password" id="newPwd" autocompvare="off" placeholder="请输入重置的密码" required class="layui-input" style="width: 80%;" onchange="inputLimit()" onkeydown="inputLimit()" onkeyup="inputLimit()">\n' +
+                                '        </div>\n' +
+                                '    </div>\n' +
+                                '</form>\n',
+                            btn: ['确定', '取消'],
+                            btnAlign: 'c',
+                            shade: 0.5,
+                            title: "重置密码",
+                            btn1 : function () {
+                                resetUserPwd(username);
+                                return false;
+                            },
+                            btn2 : function () {
+                                layer.closeAll();
+                            }
+                        });
+                    }
+                    function resetUserPwd() {
+                        var username = arguments[0];
+                        var newPwd = $('#newPwd').val();
+                        if(newPwd == null || newPwd === ""){
+                            layer.msg('密码不能为空！');
+                        }
+                        else{
+                            $.ajax({
+                                url : '../../../user/adminResetUserPwd',
+                                type : 'post',
+                                data : {"username" : username, "newPwd" : newPwd},
+                                scriptCharset : 'utf-8',
+                                success : function (result) {
+                                    if(result.message == null){
+                                        layer.open({
+                                            type: 1,
+                                            offset: 'auto',
+                                            id: 'layerDemo2', //防止重复弹出
+                                            content: '<div style="padding: 20px 90px;">' + "重置密码成功" + '</div>',
+                                            btn: '关闭',
+                                            btnAlign: 'c', //按钮居中
+                                            shade: 0.5, //不显示遮罩
+                                            title: "HZNUCTF",
+                                            yes: function () {
+                                                layer.closeAll();
+                                            }
+                                        });
+                                    }
+                                    else{
+                                        layer.msg(result.message);
+                                    }
+                                },
+                                error : function () {
+                                    layer.msg('请求失败！');
+                                }
+                            });
+                        }
                     }
                 </script>
             </div>

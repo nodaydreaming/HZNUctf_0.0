@@ -63,11 +63,13 @@ E:\IdeaProjects\HZNUctf\src\main\java\com\ctfplatform\demo\web\CompetitionAdminC
 E:\IdeaProjects\HZNUctf\src\main\java\com\ctfplatform\demo\entity\CompetitionQuestion.java
 E:\IdeaProjects\HZNUctf\src\main\java\com\ctfplatform\demo\service\CompetitionService.java
 E:\IdeaProjects\HZNUctf\src\main\java\com\ctfplatform\demo\entity\CompetitionAdmin.java
+E:\IdeaProjects\HZNUctf\src\main\java\com\ctfplatform\demo\entity\send\Problems.java
 E:\IdeaProjects\HZNUctf\src\main\java\com\ctfplatform\demo\entity\send\SendTeam.java
 E:\IdeaProjects\HZNUctf\src\main\java\com\ctfplatform\demo\dao\CompetitionAdminDao.java
 E:\IdeaProjects\HZNUctf\src\main\java\com\ctfplatform\demo\dao\AdminDao.java
 E:\IdeaProjects\HZNUctf\src\main\java\com\ctfplatform\demo\entity\Question.java
 E:\IdeaProjects\HZNUctf\src\main\java\com\ctfplatform\demo\entity\RegistrationEntity.java
+E:\IdeaProjects\HZNUctf\src\main\java\com\ctfplatform\demo\dao\ProblemsDao.java
 E:\IdeaProjects\HZNUctf\src\main\java\com\ctfplatform\demo\web\UserController.java
 E:\IdeaProjects\HZNUctf\src\main\java\com\ctfplatform\demo\entity\send\SendCompetitor.java
 E:\IdeaProjects\HZNUctf\src\main\java\com\ctfplatform\demo\web\CompetitionQuestionController.java

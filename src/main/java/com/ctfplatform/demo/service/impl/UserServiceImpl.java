@@ -143,6 +143,34 @@ public class UserServiceImpl implements UserService {
         return modelMap;
     }
 
+    /**
+     * 管理员修改用户密码
+     * @param user
+     * @return
+     */
+    @Override
+    public Map<String, Object> adminResetUserPwd(User user){
+        Map<String,Object> resultMap = new HashMap<String,Object>();
+        if(user.getCompetitorPassword() != null && !"".equals(user.getCompetitorPassword())){
+            RSA rsa = new RSA();
+            String enpwd = null;
+            //加密心密码
+            try {
+                enpwd = rsa.testEncrypt(rsa.privateKey, user.getCompetitorPassword());
+                user.setCompetitorPassword(enpwd);
+                int effectedNum = userDao.adminResetUserPwd(user);
+                if(effectedNum > 0){
+                }else{
+                    resultMap.put("message","重置密码失败");
+                }
+            } catch (InvalidKeyException | NoSuchAlgorithmException | InvalidKeySpecException | NoSuchPaddingException
+                    | IllegalBlockSizeException | BadPaddingException | IOException e) {
+                resultMap.put("message","加密失败");
+            }
+        }
+
+        return resultMap;
+    }
     @Override
     public Map<String,Object> userlogin(String competitorUsername,String competitorPassword) {
         Map<String,Object> modelMap = new HashMap<String,Object>();

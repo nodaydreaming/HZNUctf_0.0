@@ -212,17 +212,6 @@ public class SendDataController {
     }
     //获得题目信息
     public List<SendProblem> getProblems(int competitonId, HttpServletRequest request){
-        //获得已经发送过的题目数组
-        List<Problems> sendedProblems = problemsDao.queryByCompetitionId(competitonId);
-        //获得该比赛题目列表的最大题目序号
-        int order = 0;
-        if(sendedProblems != null){
-            for(Problems p : sendedProblems){
-                if(p.getProblemOrder() > order){
-                    order = p.getProblemOrder();
-                }
-            }
-        }
         //获得要发送的题目信息
         List<SendProblem> list = new LinkedList<>();
         String competitionNumber = "";
@@ -274,25 +263,39 @@ public class SendDataController {
                 }
             }
         }
-        List<SendProblem> resultList = new LinkedList<>();
-        for(int i = 0; i < list.size(); ++i){
-            for(int j = 0; j < sendedProblems.size(); ++j){
-                Problems sended = sendedProblems.get(j);
-                if(sended.getProblemId() == list.get(i).getId()){
-                    break;
-                }
-                else{
-                    SendProblem sp = list.get(i);
-                    sp.setProblemId(++order);
-                    resultList.add(sp);
-                    Problems p = new Problems();
-                    p.setCompetitionId(competitonId);
-                    p.setProblemId(sp.getId());
-                    p.setProblemOrder(sp.getProblemId());
-                    problemsDao.insert(p);
+        //获得已经发送过的题目数组
+        List<Problems> sendedProblems = problemsDao.queryByCompetitionId(competitonId);
+        //获得该比赛题目列表的最大题目序号
+        int order = 0;
+        if(sendedProblems != null){
+            for(Problems p : sendedProblems){
+                if(p.getProblemOrder() > order){
+                    order = p.getProblemOrder();
                 }
             }
+        }
+        List<SendProblem> resultList = new LinkedList<>();
+        for(int i = 0; i < list.size(); ++i){
+            boolean flag = false;
+            if(sendedProblems != null && sendedProblems.size() != 0) {
+                for (int j = 0; j < sendedProblems.size(); ++j) {
+                    Problems sended = sendedProblems.get(j);
+                    if (sended.getProblemId() == list.get(i).getId()) {
+                        flag = true;
+                    }
+                }
+            }
+            if(!flag){
+                SendProblem sp = list.get(i);
+                sp.setProblemId(++order);
+                resultList.add(sp);
 
+                Problems p = new Problems();
+                p.setCompetitionId(competitonId);
+                p.setProblemId(sp.getId());
+                p.setProblemOrder(sp.getProblemId());
+                problemsDao.insert(p);
+            }
         }
         return resultList;
     }

@@ -14,4 +14,5 @@ public interface UserService {
     Map<String,Object> deleteUser(String competitorUsername);
     Map<String,Object> userlogin(String competitorUsername, String competitorPassword);
     String decrypt(String password);
+    Map<String, Object> adminResetUserPwd(User user);
 }

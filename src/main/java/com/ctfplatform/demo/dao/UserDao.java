@@ -13,4 +13,5 @@ public interface UserDao {
     int deleteUser(String competitorUsername);
     User queryPasswordByUsername(String competitorUsername);
     User queryUserById(int userId);
+    int adminResetUserPwd(User user);
 }

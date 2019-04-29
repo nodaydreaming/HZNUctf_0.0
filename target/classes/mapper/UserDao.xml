@@ -57,6 +57,14 @@
         WHERE
         competitor_username=#{competitorUsername}
     </update>
+    <update id="adminResetUserPwd" parameterType="com.ctfplatform.demo.entity.User">
+        UPDATE tb_user
+        <set>
+            <if test="competitorPassword!=null">competitor_password=#{competitorPassword},</if>
+        </set>
+        WHERE
+        competitor_username=#{competitorUsername}
+    </update>
     <delete id="deleteUser" parameterType="com.ctfplatform.demo.entity.User">
         DELETE FROM
         tb_user

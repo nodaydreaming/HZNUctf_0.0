@@ -8,11 +8,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4baf291a-e7bf-442c-99cb-c838db8765d2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/dao/ProblemsDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/entity/send/Problems.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/ProblemsDao.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/dao/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/service/impl/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/web/SendDataController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/web/SendDataController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/web/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/web/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/UserDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/UserDao.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/admin/ctf_admin" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/admin/ctf_admin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/ctf" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/ctf" afterDir="false" />
     </list>
@@ -125,7 +127,7 @@
     <session id="-259515591">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="39" />
+          <entry key="project.closed" value="40" />
           <entry key="project.open.time.100" value="1" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.130" value="1" />
@@ -152,60 +154,76 @@
           <entry key="project.open.time.56" value="1" />
           <entry key="project.open.time.57" value="2" />
           <entry key="project.open.time.65" value="1" />
+          <entry key="project.open.time.72" value="1" />
           <entry key="project.open.time.73" value="1" />
           <entry key="project.open.time.75" value="1" />
           <entry key="project.open.time.78" value="2" />
           <entry key="project.open.time.88" value="1" />
-          <entry key="project.opened" value="41" />
+          <entry key="project.opened" value="42" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="34" />
           <entry key="CSS" value="10" />
-          <entry key="HTML" value="167" />
+          <entry key="HTML" value="171" />
           <entry key="Image" value="4" />
-          <entry key="JAVA" value="357" />
-          <entry key="JavaScript" value="283" />
+          <entry key="JAVA" value="369" />
+          <entry key="JavaScript" value="288" />
           <entry key="Markdown" value="1" />
           <entry key="PLAIN_TEXT" value="9" />
           <entry key="Properties" value="5" />
           <entry key="SVG" value="2" />
           <entry key="TypeScript" value="2" />
-          <entry key="XML" value="66" />
+          <entry key="XML" value="67" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="49" />
-          <entry key="HTML" value="1234" />
-          <entry key="JAVA" value="9907" />
-          <entry key="JavaScript" value="9894" />
-          <entry key="PLAIN_TEXT" value="832" />
+          <entry key="HTML" value="1950" />
+          <entry key="JAVA" value="10880" />
+          <entry key="JavaScript" value="9895" />
+          <entry key="PLAIN_TEXT" value="859" />
           <entry key="Properties" value="21" />
           <entry key="SQL" value="62" />
-          <entry key="XML" value="2287" />
+          <entry key="XML" value="2297" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/web/SendDataController.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/ctf/js/simulation.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="291" column="42" selection-start-line="291" selection-start-column="42" selection-end-line="291" selection-end-column="42" />
+            <state relative-caret-position="291">
+              <caret line="291" column="14" lean-forward="true" selection-start-line="291" selection-start-column="14" selection-end-line="291" selection-end-column="14" />
               <folding>
-                <element signature="method#getCompetitons#0;class#SendDataController#0" />
-                <element signature="method#getCompetitors#0;class#SendDataController#0" />
-                <element signature="method#getTeams#0;class#SendDataController#0" />
-                <element signature="method#getAdmins#0;class#SendDataController#0" />
-                <element signature="method#getBytes#0;class#SendDataController#0" />
-                <element signature="method#sendDataToCompetiton#0;class#SendDataController#0" />
-                <element signature="method#getRegistration#0;class#SendDataController#0" />
-                <element signature="method#getUserStatus#0;class#SendDataController#0" />
-                <element signature="method#main#0;class#SendDataController#0" />
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#form#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#form#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#form#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#form#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/static/admin/ctf_admin/user/user_list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="274">
+              <caret line="155" column="93" lean-forward="true" selection-start-line="155" selection-start-column="93" selection-end-line="155" selection-end-column="93" />
+              <folding>
+                <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="e#10297#11110#0" />
+                <element signature="n#style#0;n#form#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#form#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -272,8 +290,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/resources/static/ctf/home.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/ctf/css/home.css" />
         <option value="$PROJECT_DIR$/src/main/resources/static/ctf/html/register.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/web/UploadController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/admin/ctf_admin/problem/js/problem_list.js" />
@@ -303,18 +319,13 @@
         <option value="$PROJECT_DIR$/src/main/resources/static/admin/ctf_admin/contest/js/add_contest.js" />
         <option value="$PROJECT_DIR$/src/main/resources/static/ctf/html/hznuctf.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/entity/send/SendAdmin.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/web/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/dao/UserDao.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/UserDao.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/service/impl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/dao/SendCompetitorDao.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/SendCompetitorDao.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/web/CompetitionUserController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/admin/ctf_admin/contest/js/contest_list.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/web/TeamController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/service/impl/AdminServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/ctf/js/simulation.js" />
         <option value="$PROJECT_DIR$/src/main/resources/static/ctf/js/hznuctf01.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/web/TeamCompetitorController.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
@@ -323,6 +334,13 @@
         <option value="$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/dao/ProblemsDao.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/ProblemsDao.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/web/SendDataController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/dao/UserDao.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/UserDao.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/service/UserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/service/impl/UserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/web/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/ctf/js/simulation.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/admin/ctf_admin/user/user_list.html" />
       </list>
     </option>
   </component>
@@ -362,7 +380,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-10" />
     <option name="y" value="-10" />
     <option name="width" value="1940" />
@@ -376,7 +394,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -415,52 +432,6 @@
               <item name="HZNUctf" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HZNUctf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HZNUctf" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HZNUctf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HZNUctf" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
-              <item name="send" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HZNUctf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HZNUctf" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HZNUctf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HZNUctf" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HZNUctf" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HZNUctf" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -469,13 +440,63 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HZNUctf" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HZNUctf" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HZNUctf" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HZNUctf" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="ctf_admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HZNUctf" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HZNUctf" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="ctf_admin" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HZNUctf" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HZNUctf" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="ctf" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="HZNUctf" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HZNUctf" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="ctf" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -487,7 +508,7 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://E:/IdeaProjects/HZNUctf/src/main/java/com/ctfplatform/demo/entity/CompetitionUser.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556369599368" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556369670276" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -531,7 +552,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.SendDataController">
+  <component name="RunManager" selected="Spring Boot.SpringBootStartApplication">
     <configuration name="SendDataController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ctfplatform.demo.web.SendDataController" />
       <module name="HZNUctf" />
@@ -757,7 +778,8 @@
       <workItem from="1556101450557" duration="2641000" />
       <workItem from="1556105242891" duration="128000" />
       <workItem from="1556354796833" duration="10989000" />
-      <workItem from="1556368208583" duration="1383000" />
+      <workItem from="1556368208583" duration="1515000" />
+      <workItem from="1556536941747" duration="6729000" />
     </task>
     <task id="LOCAL-00001" summary="2019/03/15">
       <created>1552659176374</created>
@@ -934,7 +956,14 @@
       <option name="project" value="LOCAL" />
       <updated>1556367889541</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="2019年4月27日 20点54分&#10;1.比赛期间添加或修改题目（管理员）并发送到比赛端的问题，初步思路，将已发送的数据存在数据库中，再次发送前进行比较，之后再发送。&#10;方法已经实现，准备测试，发布。">
+      <created>1556369717137</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1556369717137</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -970,7 +999,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="474367000" />
+    <option name="totallyTimeSpent" value="481228000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -982,10 +1011,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-8" y="-8" width="1552" height="840" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22319035" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22623828" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -995,7 +1024,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32765958" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49865952" weight="0.5092199" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49865952" visible="true" weight="0.5091938" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4212766" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1022,7 +1051,7 @@
       <window_info anchor="right" id="Maven Projects" order="11" weight="0.13672923" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22319035" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22623828" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -1105,7 +1134,8 @@
     <MESSAGE value="2019年4月23日 17点04分&#10;1.解决了js版本与浏览器不适应的问题，ES6与低版本Chrome不兼容，导致js加载不出来；&#10;2.添加管理员可以取消选手的报名情况；&#10;3.向比赛端发送数据，可以添加最新报名的选手和队伍信息，通过replace字段，用新数据替换旧数据；&#10;待解决：&#10;1.比赛期间添加或修改题目（管理员）并发送到比赛端的问题，初步思路，将已发送的数据存在数据库中，再次发送前进行比较，之后再发送。" />
     <MESSAGE value="2019年4月24日 19点10分&#10;1.新添了队伍名长度的限制；&#10;2.修复了管理员登陆，由于用户名不存在导致的错误。&#10;待解决：&#10;1.比赛期间添加或修改题目（管理员）并发送到比赛端的问题，初步思路，将已发送的数据存在数据库中，再次发送前进行比较，之后再发送。" />
     <MESSAGE value="2019年4月27日 20点20分&#10;1.修改了Java中Integer类比较的问题，当用int赋值给Integer对象时会自动装箱成包装类，但是如果这个数a，在[-128,127]之间，会在一个数组里边取出一个Integer对象返回，当a不在这个范围内时，会new一个Integer对象返回。所以会存在一个问题当用不在这个范围的数创建俩个Integer对象时，用==比较返回false，推荐使用equals方法进行比较，或者其中一个Integer对象使用intValue()方法后再用==比较；&#10;2.花生壳域名映射内网端口出现问题，换一个新的就解决了。&#10;&#10;待解决：&#10;1.比赛期间添加或修改题目（管理员）并发送到比赛端的问题，初步思路，将已发送的数据存在数据库中，再次发送前进行比较，之后再发送。" />
-    <option name="LAST_COMMIT_MESSAGE" value="2019年4月27日 20点20分&#10;1.修改了Java中Integer类比较的问题，当用int赋值给Integer对象时会自动装箱成包装类，但是如果这个数a，在[-128,127]之间，会在一个数组里边取出一个Integer对象返回，当a不在这个范围内时，会new一个Integer对象返回。所以会存在一个问题当用不在这个范围的数创建俩个Integer对象时，用==比较返回false，推荐使用equals方法进行比较，或者其中一个Integer对象使用intValue()方法后再用==比较；&#10;2.花生壳域名映射内网端口出现问题，换一个新的就解决了。&#10;&#10;待解决：&#10;1.比赛期间添加或修改题目（管理员）并发送到比赛端的问题，初步思路，将已发送的数据存在数据库中，再次发送前进行比较，之后再发送。" />
+    <MESSAGE value="2019年4月27日 20点54分&#10;1.比赛期间添加或修改题目（管理员）并发送到比赛端的问题，初步思路，将已发送的数据存在数据库中，再次发送前进行比较，之后再发送。&#10;方法已经实现，准备测试，发布。" />
+    <option name="LAST_COMMIT_MESSAGE" value="2019年4月27日 20点54分&#10;1.比赛期间添加或修改题目（管理员）并发送到比赛端的问题，初步思路，将已发送的数据存在数据库中，再次发送前进行比较，之后再发送。&#10;方法已经实现，准备测试，发布。" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1191,34 +1221,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/UserDao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="19" column="13" lean-forward="true" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/dao/UserDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/web/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="113" column="52" lean-forward="true" selection-start-line="113" selection-start-column="52" selection-end-line="113" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/entity/send/SendTeam.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -1230,13 +1232,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret selection-end-line="3" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/service/impl/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="43" column="101" selection-start-line="43" selection-start-column="75" selection-end-line="43" selection-end-column="101" />
         </state>
       </provider>
     </entry>
@@ -1287,13 +1282,6 @@
         <state relative-caret-position="-5" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/admin/ctf_admin/user/user_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="169" column="71" selection-start-line="169" selection-start-column="53" selection-end-line="169" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/admin/ctf_admin/contest/js/contest_list.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4">
@@ -1308,13 +1296,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/dao/AdminDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/web/CompetitionUserController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -1326,20 +1307,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/web/TeamController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="637">
-          <caret line="40" column="95" selection-start-line="40" selection-start-column="95" selection-end-line="40" selection-end-column="95" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/ctf/js/simulation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="505">
-          <caret line="390" column="59" selection-start-line="390" selection-start-column="39" selection-end-line="390" selection-end-column="59" />
         </state>
       </provider>
     </entry>
@@ -1406,13 +1373,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/web/AdminController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-995">
-          <caret line="71" column="30" selection-start-line="71" selection-start-column="30" selection-end-line="71" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/entity/Question.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -1431,9 +1391,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="7" column="14" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1441,24 +1398,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="5" column="32" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="32" />
-          <folding>
-            <element signature="e#218#219#0" expanded="true" />
-            <element signature="e#243#244#0" expanded="true" />
-            <element signature="e#280#281#0" expanded="true" />
-            <element signature="e#308#309#0" expanded="true" />
-            <element signature="e#345#346#0" expanded="true" />
-            <element signature="e#377#378#0" expanded="true" />
-            <element signature="e#428#429#0" expanded="true" />
-            <element signature="e#470#471#0" expanded="true" />
-            <element signature="e#510#511#0" expanded="true" />
-            <element signature="e#545#546#0" expanded="true" />
-            <element signature="e#602#603#0" expanded="true" />
-            <element signature="e#650#651#0" expanded="true" />
-            <element signature="e#691#692#0" expanded="true" />
-            <element signature="e#727#728#0" expanded="true" />
-            <element signature="e#786#787#0" expanded="true" />
-            <element signature="e#836#837#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1496,8 +1435,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/web/SendDataController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="291" column="42" selection-start-line="291" selection-start-column="42" selection-end-line="291" selection-end-column="42" />
+        <state relative-caret-position="955">
+          <caret line="291" column="16" lean-forward="true" selection-start-line="291" selection-start-column="16" selection-end-line="291" selection-end-column="16" />
           <folding>
             <element signature="method#getCompetitons#0;class#SendDataController#0" />
             <element signature="method#getCompetitors#0;class#SendDataController#0" />
@@ -1508,6 +1447,105 @@
             <element signature="method#getRegistration#0;class#SendDataController#0" />
             <element signature="method#getUserStatus#0;class#SendDataController#0" />
             <element signature="method#main#0;class#SendDataController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/web/AdminController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="105" column="32" selection-start-line="105" selection-start-column="22" selection-end-line="105" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/dao/AdminDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/UserDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="387">
+          <caret line="65" column="49" lean-forward="true" selection-start-line="65" selection-start-column="49" selection-end-line="65" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/dao/UserDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="15" column="16" lean-forward="true" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/service/impl/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="155" column="32" selection-start-line="155" selection-start-column="32" selection-end-line="155" selection-end-column="32" />
+          <folding>
+            <element signature="e#6466#6481#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="16" column="41" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/web/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="213" column="46" selection-start-line="213" selection-start-column="29" selection-end-line="213" selection-end-column="46" />
+          <folding>
+            <element signature="method#listUser#0;class#UserController#0" />
+            <element signature="method#getUserByUsername#0;class#UserController#0" />
+            <element signature="method#addUser#0;class#UserController#0" />
+            <element signature="method#deleteUser#0;class#UserController#0" />
+            <element signature="method#loginUser#0;class#UserController#0" />
+            <element signature="method#getUserMap#0;class#UserController#0" />
+            <element signature="method#quxiao#0;class#UserController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ctfplatform/demo/web/TeamController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="47" column="53" selection-start-line="47" selection-start-column="53" selection-end-line="47" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/ctf/js/simulation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="291" column="14" lean-forward="true" selection-start-line="291" selection-start-column="14" selection-end-line="291" selection-end-column="14" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#form#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#form#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#form#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#form#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/admin/ctf_admin/user/user_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="155" column="93" lean-forward="true" selection-start-line="155" selection-start-column="93" selection-end-line="155" selection-end-column="93" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="e#10297#11110#0" />
+            <element signature="n#style#0;n#form#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#form#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

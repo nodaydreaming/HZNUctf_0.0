@@ -1,5 +1,6 @@
 package com.ctfplatform.demo.web;
 
+import com.ctfplatform.demo.entity.Admin;
 import com.ctfplatform.demo.entity.User;
 import com.ctfplatform.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -209,5 +210,23 @@ public class UserController {
             modelMap.put("message","失败");
         }
         return modelMap;
+    }
+    @RequestMapping(value = "adminResetUserPwd", method = RequestMethod.POST)
+    private Map<String, Object> adminResetUserPwd(String username, String newPwd, HttpServletRequest request){
+        Map<String, Object> resultMap = new HashMap<>();
+        Admin loginAdmin = (Admin) request.getSession().getAttribute("admin");
+        if(loginAdmin.getAdminState() == 2 || loginAdmin.getAdminState() == 3){
+            User u = new User();
+            u.setCompetitorPassword(newPwd);
+            u.setCompetitorUsername(username);
+            Map<String, Object> map = userService.adminResetUserPwd(u);
+            if(map.get("message") != null ){
+                resultMap.put("message", map.get("message"));
+            }
+        }
+        else{
+            resultMap.put("message", "您没有权限修改用户密码");
+        }
+        return resultMap;
     }
 }

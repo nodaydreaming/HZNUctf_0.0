@@ -120,6 +120,10 @@ public class SendDataController {
                                 sendCompetitor.setPassword(userService.decrypt(u.getCompetitorPassword()));
                                 sendCompetitor.setName(u.getCompetitorNickname());
                                 sendCompetitor.setTeamAccount(t.getTeamId()+"");
+                                sendCompetitor.setRealName(u.getCompetitorName());
+                                sendCompetitor.setStuCollege(u.getCompetitorAcademy());
+                                sendCompetitor.setStuClass(u.getCompetitorClass());
+                                sendCompetitor.setStuNumber(u.getCompetitorStudentnumber());
 
                                 list.add(sendCompetitor);
                             }
@@ -245,7 +249,7 @@ public class SendDataController {
                         sendProblem.setExtraScore(q.getQuestionAdditional());
                         sendProblem.setFullScore(q.getQuestionPoint() + q.getQuestionAdditional());
                         sendProblem.setScoreStep(q.getQuestionDecrease());
-                        sendProblem.setAnswer(q.getQuestionAnswer());
+                        sendProblem.setAnswer(userService.decrypt(q.getQuestionAnswer()));
                         sendProblem.setProblemId(cq.getQuestionNumber());
                         sendProblem.setLevel(q.getQuestionLevel() == null ? 0 : q.getQuestionLevel());
                         sendProblem.setResourceURL(new SendDataController().getBytes(q.getQuestionResource(), request));
@@ -290,11 +294,11 @@ public class SendDataController {
                 sp.setProblemId(++order);
                 resultList.add(sp);
 
-                Problems p = new Problems();
-                p.setCompetitionId(competitonId);
-                p.setProblemId(sp.getId());
-                p.setProblemOrder(sp.getProblemId());
-                problemsDao.insert(p);
+//                Problems p = new Problems();
+//                p.setCompetitionId(competitonId);
+//                p.setProblemId(sp.getId());
+//                p.setProblemOrder(sp.getProblemId());
+//                problemsDao.insert(p);
             }
         }
         return resultList;
@@ -381,7 +385,22 @@ public class SendDataController {
 
         return resultMap;
     }
-
+    @RequestMapping(value = "saveSendedProblems", method = RequestMethod.POST)
+    private Map<String, Object> saveSendedProblems(String problemIds, String orders, int competitionId){
+        Map<String, Object> resultMap = new HashMap<>();
+        String[] IDs = problemIds.split(" ");
+        String[] order = orders.split(" ");
+        for(int i = 0; i < IDs.length; ++i){
+            if(IDs[i] != null && !"".equals(IDs[i])) {
+                Problems p = new Problems();
+                p.setCompetitionId(competitionId);
+                p.setProblemId(Integer.parseInt(IDs[i]));
+                p.setProblemOrder(Integer.parseInt(order[i]));
+                problemsDao.insert(p);
+            }
+        }
+        return resultMap;
+    }
     @RequestMapping(value = "getRegistration", method = RequestMethod.GET)
     private Map<String, Object> getRegistration(int competitionId, int page, int limit){
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

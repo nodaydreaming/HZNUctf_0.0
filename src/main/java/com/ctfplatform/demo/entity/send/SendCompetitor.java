@@ -11,6 +11,42 @@ public class SendCompetitor {
     private boolean banned;
     private String competitionId;
     private String teamAccount;
+    private String realName;
+    private String stuNumber;
+    private String stuClass;
+    private String stuCollege;
+
+    public String getRealName() {
+        return realName;
+    }
+
+    public void setRealName(String realName) {
+        this.realName = realName;
+    }
+
+    public String getStuNumber() {
+        return stuNumber;
+    }
+
+    public void setStuNumber(String stuNumber) {
+        this.stuNumber = stuNumber;
+    }
+
+    public String getStuClass() {
+        return stuClass;
+    }
+
+    public void setStuClass(String stuClass) {
+        this.stuClass = stuClass;
+    }
+
+    public String getStuCollege() {
+        return stuCollege;
+    }
+
+    public void setStuCollege(String stuCollege) {
+        this.stuCollege = stuCollege;
+    }
 
     public int getId() {
         return id;
